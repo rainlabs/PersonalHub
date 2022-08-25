@@ -1,24 +1,18 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors'
-import { Message } from '../../shared'
+export default {
+  /**
+   * An asynchronous register function that runs before
+   * your application is initialized.
+   *
+   * This gives you an opportunity to extend code.
+   */
+  register(/*{ strapi }*/) {},
 
-dotenv.config();
-
-const app: Express = express();
-const port = process.env.PORT;
-
-app.use(cors())
-
-app.post('/api', (req: Request, res: Response) => {
-    const output: Message = {
-        title: 'Message from server',
-        body: 'Hello from server!'
-    }
-
-    res.send(output);
-});
-
-app.listen(port, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
-});
+  /**
+   * An asynchronous bootstrap function that runs before
+   * your application gets started.
+   *
+   * This gives you an opportunity to set up your data model,
+   * run jobs, or perform some special logic.
+   */
+  bootstrap(/*{ strapi }*/) {},
+};
