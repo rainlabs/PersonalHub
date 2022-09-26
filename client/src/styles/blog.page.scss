@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,300;1,500;1,600&family=Pacifico&display=swap');
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blog-avatar {
+    max-width: 10rem;
+    bottom: 4rem;
+}
+
+@screen lg {
+    .blog-avatar {
+        max-width: 14rem;
+        bottom: 7rem;
+    }
+}
