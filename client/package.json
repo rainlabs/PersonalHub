@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@ramielcreations/rgbaster": "^2.1.1",
+    "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^0.27.2",
+    "lightgallery": "^2.6.1",
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "tw-elements": "^1.0.0-alpha12"
   },
@@ -21,6 +25,7 @@
     "@types/qs": "^6.9.7",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",

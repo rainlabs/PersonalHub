@@ -1,5 +1,7 @@
 export enum BlogTopic {
-    WALKS,
-    THOUGHTS,
-    BUTTHURT
+    WALK        = 'walk',
+    THOUGHT     = 'thought',
+    BUTTHURT    = 'butthurt',
+    PROGRAMMING = 'programming',
+    RECEIPT     = 'receipt'
 }

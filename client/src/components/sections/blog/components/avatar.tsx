@@ -10,10 +10,10 @@ const BlogAvatar: FC = () => {
                     <img src="/blog_avatar.jpg" className="h-auto rounded-full" alt="" />
                     <p className='text-center font-pacifico mt-4 text-lg'>Паблики</p>
                     <div className='flex flex-row justify-between px-2 mx-16 mt-2'>
-                        <a href='https://vk.com' className='w-8 text-blue-500 hover:text-blue-600'>
+                        <a href='https://vk.com' className='w-8 text-blue-500 opacity-100 hover:opacity-80'>
                             <VkIcon />
                         </a>
-                        <a href='https://telegram.org' className='w-8 text-blue-400 hover:text-blue-600'>
+                        <a href='https://telegram.org' className='w-8 text-blue-400 opacity-100 hover:opacity-80'>
                             <TelegramIcon />
                         </a>
                     </div>

@@ -1,4 +1,9 @@
 import React, { FC } from 'react';
+import CameraIcon from '../../../icons/camera_icon';
+import ChatIcon from '../../../icons/chat_icon';
+import EmojiAngryIcon from '../../../icons/emoji_angry';
+import KeyboardIcon from '../../../icons/keyboard_icon';
+import ReceiptIcon from '../../../icons/receipt_icon';
 import AppNavLink from '../../../_app_nav_link';
 
 const BlogNavigation: FC = () => {
@@ -6,13 +11,44 @@ const BlogNavigation: FC = () => {
         <nav className='w-full flex'>
             <ul className='flex flex-none items-center uppercase font-bold text-xs mx-auto'>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-gray-400'>Прогулки</AppNavLink>
+                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-fuchsia-600 group relative'>
+                        <div className='w-4 h-4 align-top absolute -left-5 hidden group-hover:inline-block'>
+                            <CameraIcon />
+                        </div>
+                        Прогулки
+                    </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-gray-400'>Мысли</AppNavLink>
+                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-green-600 group relative'>
+                        <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
+                            <ChatIcon />
+                        </div>
+                        Мысли
+                    </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-gray-400'>Бомбеж</AppNavLink>
+                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-red-600 group relative'>
+                        <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
+                            <EmojiAngryIcon />
+                        </div>
+                        Бомбеж
+                    </AppNavLink>
+                </li>
+                <li className='px-5'>
+                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-blue-600 group relative'>
+                        <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
+                            <KeyboardIcon />
+                        </div>
+                        Программирование
+                    </AppNavLink>
+                </li>
+                <li className='px-5'>
+                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-yellow-600 group relative'>
+                        <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
+                            <ReceiptIcon />
+                        </div>
+                        Рецепты
+                    </AppNavLink>
                 </li>
             </ul>
         </nav>

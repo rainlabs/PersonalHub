@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "article"
+    "displayName": "article",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,37 @@
     "body": {
       "type": "richtext",
       "required": true
+    },
+    "topic": {
+      "type": "enumeration",
+      "enum": [
+        "walk",
+        "thought",
+        "butthurt",
+        "programming",
+        "receipt"
+      ],
+      "default": "walk",
+      "required": true
+    },
+    "imagePreview": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "originalDate": {
+      "type": "date"
     }
   }
 }
