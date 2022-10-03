@@ -20,8 +20,7 @@ steps:
   - chmod 600 $HOME/.ssh/id_ed25519
   - touch $HOME/.ssh/known_hosts
   - chmod 600 $HOME/.ssh/known_hosts
-  - ssh-keyscan -t ed25519 gitea.box >> $HOME/.ssh/known_hosts
-  - cat $HOME/.ssh/id_ed25519
+  - ssh-keyscan -H gitea.box > $HOME/.ssh/known_hosts 2> /dev/null
   - GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519" git clone gitea@gitea.box:SibirianitWeb/PersonalHub.git .
   - git checkout $DRONE_COMMIT
 
