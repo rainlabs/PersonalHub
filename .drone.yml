@@ -1,0 +1,41 @@
+kind: pipeline
+type: exec
+name: production
+
+platform:
+  os: linux
+  arch: amd64
+
+clone:
+  disable: true
+
+steps:
+- name: clone
+  environment:
+      SSH_KEY:
+        from_secret: gitea_ssh_org
+  commands:
+  - mkdir -p $HOME/.ssh
+  - echo "$SSH_KEY" > $HOME/.ssh/id_ed25519
+  - chmod 600 $HOME/.ssh/id_ed25519
+  - touch $HOME/.ssh/known_hosts
+  - chmod 600 $HOME/.ssh/known_hosts
+  - ssh-keyscan -H gitea.box > $HOME/.ssh/known_hosts 2> /dev/null
+  - GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519" git clone gitea@gitea.box:SibirianitWeb/PersonalHub.git .
+  - git checkout $DRONE_COMMIT
+
+- name: install
+  commands:
+  - npm install
+
+- name: build
+  commands:
+  - unset CI
+  - npm run build
+
+node:
+  machine: home
+
+trigger:
+  branch:
+  - master

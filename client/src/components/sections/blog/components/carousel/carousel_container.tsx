@@ -21,7 +21,7 @@ const BlogCarouselContainer: FC<Props> = ({ carouselId, className, children }) =
     }
 
     return (
-        <div id={carouselId} className={`carousel relative ${className || ''}`} data-bs-ride="carousel" data-bs-interval="false">
+        <div id={carouselId} className={`carousel slide relative ${className || ''}`} data-bs-ride="carousel">
             <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                 { renderIndicators() }
             </div>

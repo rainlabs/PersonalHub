@@ -14,5 +14,6 @@ export type BlogArticleData = {
     originalDate?: string,
     gallery?: {
         data: StrapiModel<StrapiImage>[]
-    }
+    },
+    references?: ExternalReference[]
 }

@@ -39,6 +39,9 @@ export default {
                 },
                 gallery: {
                     fields: ['formats', 'url', 'caption']
+                },
+                references: {
+                    fields: ['link', 'displayName']
                 }
             }
         }, { encodeValuesOnly: true })

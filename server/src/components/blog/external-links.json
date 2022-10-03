@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blog_external_links",
+  "info": {
+    "displayName": "ExternalLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "displayName": {
+      "type": "string"
+    }
+  }
+}

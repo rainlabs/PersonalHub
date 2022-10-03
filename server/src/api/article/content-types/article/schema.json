@@ -54,6 +54,11 @@
     },
     "originalDate": {
       "type": "date"
+    },
+    "references": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.external-links"
     }
   }
 }

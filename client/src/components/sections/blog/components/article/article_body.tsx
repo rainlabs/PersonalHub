@@ -6,6 +6,8 @@ import BlogGallery from '../gallery/gallery';
 import BlogPublishedBlock from '../published_block';
 import BlogGalleryItem from '../gallery/gallery_item';
 import { StrapiModel } from '../../../../../types/strapi.model';
+import BlogArticleReferences from './article_references';
+import { ExternalReference } from '../../../../../types/external_reference';
 
 type Props = {
     className?: string,
@@ -14,10 +16,11 @@ type Props = {
     gallery?: {
         data: StrapiModel<StrapiImage>[]
     },
+    references?: ExternalReference[],
     children: string
 }
 
-const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, children }) => {
+const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, references, children }) => {
     function renderGallery() {
         if (gallery && gallery.data.length > 0) {
             return (
@@ -45,6 +48,7 @@ const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gall
             }
             <div className='mt-4' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
+            <BlogArticleReferences references={references || []} />
         </div>
     )
 }
