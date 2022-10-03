@@ -13,7 +13,7 @@ steps:
 - name: clone
   environment:
       SSH_KEY:
-        from_secret: gitea_ssh_org
+        from_secret: gitea_ssh
   commands:
   - mkdir -p $HOME/.ssh
   - echo "$SSH_KEY" > $HOME/.ssh/id_ed25519
