@@ -1,9 +1,9 @@
 export default {
     extractDate(raw_date: string | Date) {
         // 13.01.2022
-        const format = {
-            day: 'numeric',
-            month: 'numeric',
+        const format: Intl.DateTimeFormatOptions = {
+            day: '2-digit',
+            month: '2-digit',
             year: 'numeric'
         }
         let date = new Date(raw_date)
