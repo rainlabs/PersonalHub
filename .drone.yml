@@ -26,12 +26,12 @@ steps:
 
 - name: install
   commands:
-  - npm install
+  - n run 16.17.0 npm install
 
 - name: build
   commands:
   - unset CI
-  - npm run build
+  - n run 16.17.0 npm run build
 
 node:
   machine: home
