@@ -35,8 +35,6 @@ steps:
   - echo "$SERVER_ENV" > ./server/.env
 
 - name: install
-  environment:
-    NODE_ENV: production
   commands:
   - n exec 16.17.0 npm install
 
