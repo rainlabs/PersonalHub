@@ -4,5 +4,5 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
-  url: 'https://vladimir.ziablitskii.ru'
+  url: env('SITE_URL', '')
 });
