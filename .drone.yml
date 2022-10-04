@@ -24,14 +24,59 @@ steps:
   - GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519" git clone gitea@gitea.box:SibirianitWeb/PersonalHub.git .
   - git checkout $DRONE_COMMIT
 
+- name: copy .env
+  environment:
+      CLIENT_ENV:
+        from_secret: client_env
+      SERVER_ENV:
+        from_secret: server_env
+  commands:
+  - echo "$CLIENT_ENV" > ./client/.env
+  - echo "$SERVER_ENV" > ./server/.env
+
 - name: install
+  environment:
+    NODE_ENV: production
   commands:
   - n exec 16.17.0 npm install
 
 - name: build
+  environment:
+    NODE_ENV: production
   commands:
   - unset CI
   - n exec 16.17.0 npm run build
+
+- name: deploy
+  commands:
+  - mkdir -p /var/www/personal_hub/builds/
+  - cp -R ./build /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER
+  when:
+    event:
+    - promote
+    target:
+    - production
+
+- name: publish
+  commands:
+  - rm /var/www/personal_hub/release
+  - ln -s /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER /var/www/personal_hub/release
+  # - find /var/www/personal_hub/builds/ -maxdepth 1 -mindepth 1 -type d -printf "%T@ %Tc %p\n" | sort -nr | awk '{print $9}' | tail -n +6 | xargs rm -rf
+  when:
+    event:
+    - promote
+    target:
+    - production
+
+# - name: restart services
+#   commands:
+#   - systemctl restart personal_hub_client
+#   - systemctl restart personal_hub_server
+#   when:
+#     event:
+#     - promote
+#     target:
+#     - production
 
 node:
   machine: home
