@@ -58,7 +58,7 @@ steps:
 
 - name: publish
   commands:
-  - rm /var/www/personal_hub/release
+  - rm -f /var/www/personal_hub/release
   - ln -s /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER /var/www/personal_hub/release
   # - find /var/www/personal_hub/builds/ -maxdepth 1 -mindepth 1 -type d -printf "%T@ %Tc %p\n" | sort -nr | awk '{print $9}' | tail -n +6 | xargs rm -rf
   when:
