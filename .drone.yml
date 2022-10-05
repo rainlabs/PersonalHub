@@ -50,6 +50,8 @@ steps:
   - mkdir -p /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER
   - cp -R ./client /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER/client
   - cp -R ./server /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER/server
+  - rm -rf /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER/server/public/uploads
+  - ln -s /var/www/personal_hub/uploads /var/www/personal_hub/builds/$DRONE_BRANCH-$DRONE_BUILD_NUMBER/server/public/uploads
   when:
     event:
     - promote
