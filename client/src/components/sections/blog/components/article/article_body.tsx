@@ -27,7 +27,7 @@ const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gall
                 <BlogGallery>
                     {
                         gallery.data.map((el, idx) => {
-                            return <BlogGalleryItem key={idx} thumbnail={el.attributes.formats.thumbnail.url} original={el.attributes.url} caption={el.attributes.caption} />
+                            return <BlogGalleryItem key={idx} thumbnail={el.attributes.formats.small.url} original={el.attributes.url} caption={el.attributes.caption} />
                         })
                     }
                 </BlogGallery>
