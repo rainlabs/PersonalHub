@@ -12,7 +12,7 @@ const BlogPublishedBlock: FC<Props> = ({ label, className, children }) => {
     return (
         <p className={`text-gray-500 mb-6 ${className}`}>
             <small>
-                { label || defaultLabel } <u>{ DateUtils.extractDate(children) }</u>
+                { label || defaultLabel } <u>{ children ? DateUtils.extractDate(children) : 'N/A' }</u>
             </small>
         </p>
     )

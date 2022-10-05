@@ -1,14 +1,10 @@
 import QueryString from "qs"
 import StrapiService from "../../../../../services/strapi.service"
+import strapiAuthUtils from "../../../../../utils/strapi.auth.utils"
 
-const strapiQuery = QueryString.stringify({
-    fields: ['topic', 'title', 'description', 'publishedAt'],
-    populate: {
-        imagePreview: {
-            fields: ['formats']
-        }
-    }
-}, { encodeValuesOnly: true })
+function getPublicationState() {
+    return strapiAuthUtils.isJwtTokenValid() ? 'preview' : 'live'
+}
 
 export default {
     async getLatestArticles() {
@@ -23,7 +19,8 @@ export default {
                 page: 1,
                 pageSize: 10,
                 withCount: true
-            }
+            },
+            publicationState: getPublicationState()
         }, { encodeValuesOnly: true })
 
         const response = await StrapiService.get(`/articles?${strapiQuery}`)
@@ -43,7 +40,8 @@ export default {
                 references: {
                     fields: ['link', 'displayName']
                 }
-            }
+            },
+            publicationState: getPublicationState()
         }, { encodeValuesOnly: true })
 
         const response = await StrapiService.get(`/articles/${articleId}?${strapiQuery}`)

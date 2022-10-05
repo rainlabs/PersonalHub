@@ -22,7 +22,7 @@ type Props = {
 
 const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, references, children }) => {
     function renderGallery() {
-        if (gallery && gallery.data.length > 0) {
+        if (gallery && gallery.data && gallery.data.length > 0) {
             return (
                 <BlogGallery>
                     {

@@ -11,14 +11,22 @@ type Props = {
 }
 
 const BlogArticlePreview: FC<Props> = ({id, data}) => {
+    function getImageUrl() {
+        if (data.imagePreview.data) {
+            return uriUtils.getURL(data.imagePreview.data.attributes.formats.thumbnail.url)
+        }
+
+        return '/preview.jpg'
+    }
+
     return (
         <div className="flex flex-wrap mb-6">
             <div className="grow-0 shrink-0 basis-auto w-full md:w-3/12 px-3 mb-6 md:mb-0 ml-auto">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                    <img src={ uriUtils.getURL(data.imagePreview.data.attributes.formats.small.url) } className="w-full" alt='preview' title='preview' />
-                    {/* <div className='absolute flex top-0 right-0 bottom-0 left-0 w-full h-full text-white text-center items-center text-lg'>
+                    <img src={ getImageUrl() } className="w-full" alt='preview' title='preview' />
+                    <div className='absolute flex top-0 right-0 bottom-0 left-0 w-full h-full text-white text-center items-center text-lg'>
                         <div className='m-auto'>DRAFT</div>
-                    </div> */}
+                    </div>
                     <AppNavLink to={`/blog/article/${id}`}>
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
                         style={{backgroundColor: "rgba(251, 251, 251, 0.2)"}}></div>

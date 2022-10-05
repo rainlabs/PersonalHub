@@ -8,6 +8,7 @@ const BlogPage = React.lazy(() => import('../components/sections/blog/pages/inde
 const BlogArticlePage = React.lazy(() => import('../components/sections/blog/pages/article.page'));
 const BlogLayout = React.lazy(() => import('../components/sections/blog/layout'));
 const NotFoundPage = React.lazy(() => import('../components/pages/not_found.page'));
+const StrapiLoginPage = React.lazy(() => import('../components/pages/strapi_login.page'));
 
 const MainRouter: FC = () => {
     return (
@@ -20,6 +21,8 @@ const MainRouter: FC = () => {
                         <Route index element={<BlogPage />} />
                         <Route path='/blog/article/:articleId' element={<BlogArticlePage />} />
                     </Route>
+
+                    <Route path='/strapi/login' element={<StrapiLoginPage />} />
                 </Route>
 
                 <Route path='/not_found' element={<NotFoundPage />} />

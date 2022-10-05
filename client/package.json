@@ -12,6 +12,7 @@
     "@ramielcreations/rgbaster": "^2.1.1",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "lightgallery": "^2.6.1",
     "qs": "^6.11.0",
     "react": "^18.2.0",
