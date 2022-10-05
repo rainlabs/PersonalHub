@@ -67,15 +67,14 @@ steps:
     target:
     - production
 
-# - name: restart services
-#   commands:
-#   - systemctl restart personal_hub_client
-#   - systemctl restart personal_hub_server
-#   when:
-#     event:
-#     - promote
-#     target:
-#     - production
+- name: restart services
+  commands:
+  - systemctl restart personal_hub.service
+  when:
+    event:
+    - promote
+    target:
+    - production
 
 node:
   machine: home
