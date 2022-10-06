@@ -64,6 +64,10 @@
       "type": "component",
       "repeatable": false,
       "component": "blog.location"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

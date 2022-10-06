@@ -46,6 +46,7 @@ const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gall
                     { originalDate }
                 </BlogPublishedBlock>
             }
+            <div className='indent-12 text-justify'></div>
             <div className='mt-4' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
             <BlogArticleReferences references={references || []} />

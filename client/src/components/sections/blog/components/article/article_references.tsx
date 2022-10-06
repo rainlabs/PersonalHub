@@ -26,7 +26,7 @@ const BlogArticleReferences: FC<Props> = ({ references }) => {
     return (
         <div className='mt-7'>
             <h2 className='text-xl text-center font-normal'>Внешние ссылки</h2>
-            <ol className='list-decimal list-inside mt-4 indent-4'>
+            <ol className='list-decimal list-inside mt-4 indent-12'>
                 { renderLinks() }
             </ol>
         </div>

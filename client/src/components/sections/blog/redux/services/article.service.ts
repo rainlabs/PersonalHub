@@ -1,15 +1,25 @@
 import QueryString from "qs"
 import StrapiService from "../../../../../services/strapi.service"
+import { BlogTopic } from "../../../../../types/blog_topic.enum"
 import strapiAuthUtils from "../../../../../utils/strapi.auth.utils"
 
 function getPublicationState() {
     return strapiAuthUtils.isJwtTokenValid() ? 'preview' : 'live'
 }
 
+function getTopicFilter(topic?: BlogTopic) {
+    if (topic) {
+        return {
+            topic: topic
+        }
+    }
+    return {}
+}
+
 export default {
-    async getLatestArticles() {
+    async getLatestArticles(topic?: BlogTopic) {
         const strapiQuery = QueryString.stringify({
-            fields: ['topic', 'title', 'description', 'publishedAt'],
+            fields: ['topic', 'title', 'description', 'publishedAt', 'slug'],
             populate: {
                 imagePreview: {
                     fields: ['formats', 'url', 'caption']
@@ -23,6 +33,8 @@ export default {
                 pageSize: 10,
                 withCount: true
             },
+            filters: getTopicFilter(topic),
+            sort: ['publishedAt:desc'],
             publicationState: getPublicationState()
         }, { encodeValuesOnly: true })
 
@@ -30,9 +42,9 @@ export default {
         return response.data.data
     },
 
-    async getArticleById(articleId: number) {
+    async getArticleById(articleSlug: string) {
         const strapiQuery = QueryString.stringify({
-            fields: ['topic', 'title', 'description', 'publishedAt', 'body', 'originalDate'],
+            fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'body', 'originalDate'],
             populate: {
                 imagePreview: {
                     fields: ['formats', 'url', 'caption']
@@ -47,10 +59,13 @@ export default {
                     fields: ['displayName']
                 }
             },
+            filters: {
+                slug: articleSlug
+            },
             publicationState: getPublicationState()
         }, { encodeValuesOnly: true })
 
-        const response = await StrapiService.get(`/articles/${articleId}?${strapiQuery}`)
-        return response.data.data
+        const response = await StrapiService.get(`/articles?${strapiQuery}`)
+        return response.data.data.length > 0 ? response.data.data[0] : null
     }
 }

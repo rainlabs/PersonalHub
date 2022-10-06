@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { BlogTopic } from '../../../../types/blog_topic.enum';
 import CameraIcon from '../../../icons/camera_icon';
 import ChatIcon from '../../../icons/chat_icon';
 import EmojiAngryIcon from '../../../icons/emoji_angry';
@@ -11,7 +12,7 @@ const BlogNavigation: FC = () => {
         <nav className='w-full flex'>
             <ul className='flex flex-none items-center uppercase font-bold text-xs mx-auto'>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-fuchsia-600 group relative'>
+                    <AppNavLink to={`/blog/topic/${BlogTopic.WALK}`} className='text-gray-600 hover:text-fuchsia-600 group relative'>
                         <div className='w-4 h-4 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <CameraIcon />
                         </div>
@@ -19,7 +20,7 @@ const BlogNavigation: FC = () => {
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-green-600 group relative'>
+                    <AppNavLink to={`/blog/topic/${BlogTopic.THOUGHT}`} className='text-gray-600 hover:text-green-600 group relative'>
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <ChatIcon />
                         </div>
@@ -27,7 +28,7 @@ const BlogNavigation: FC = () => {
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-red-600 group relative'>
+                    <AppNavLink to={`/blog/topic/${BlogTopic.BUTTHURT}`} className='text-gray-600 hover:text-red-600 group relative'>
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <EmojiAngryIcon />
                         </div>
@@ -35,7 +36,7 @@ const BlogNavigation: FC = () => {
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-blue-600 group relative'>
+                    <AppNavLink to={`/blog/topic/${BlogTopic.PROGRAMMING}`} className='text-gray-600 hover:text-blue-600 group relative'>
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <KeyboardIcon />
                         </div>
@@ -43,7 +44,7 @@ const BlogNavigation: FC = () => {
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
-                    <AppNavLink to='/blog/topics' className='text-gray-600 hover:text-yellow-600 group relative'>
+                    <AppNavLink to={`/blog/topic/${BlogTopic.RECEIPT}`} className='text-gray-600 hover:text-yellow-600 group relative'>
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <ReceiptIcon />
                         </div>

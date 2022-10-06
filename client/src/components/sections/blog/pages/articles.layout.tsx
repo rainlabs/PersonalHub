@@ -2,17 +2,20 @@ import React, { FC } from 'react';
 import BlogHeader from '../components/header';
 import BlogHeroSlider from '../components/hero_slider';
 import BlogAvatar from '../components/avatar';
-import BlogArticles from '../components/articles';
 
-const BlogIndexPage: FC = () => {
+type Props = {
+    children?: React.ReactNode
+}
+
+const BlogArticlesLayout: FC<Props> = ({ children }) => {
     return (
         <>
             <BlogHeader />
             <BlogHeroSlider />
             <BlogAvatar />
-            <BlogArticles />
+            { children }
         </>
     )
 }
 
-export default BlogIndexPage;
+export default BlogArticlesLayout;

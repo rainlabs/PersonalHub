@@ -9,14 +9,14 @@ import { useArticle } from '../hooks/article.hooks';
 import BlogArticleBody from '../components/article/article_body';
 
 type ArticleParams = {
-    articleId: string
+    articleSlug: string
 }
 
 const BlogArticlePage: FC = () => {
-    const { articleId } = useParams<ArticleParams>()
-    const article = useArticle(Number(articleId))
+    const { articleSlug } = useParams<ArticleParams>()
+    const article = useArticle(articleSlug || '')
 
-    if (article === null || article.id !== Number(articleId)) {
+    if (article === null || article.attributes.slug !== articleSlug) {
         return <div></div>
     }
 

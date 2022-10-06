@@ -4,7 +4,8 @@ import BlogRouter from './blog';
 
 import LoadingPage from '../components/pages/loading.page';
 const HomePage = React.lazy(() => import('../components/sections/home/pages/index.page'));
-const BlogPage = React.lazy(() => import('../components/sections/blog/pages/index.page'));
+const BlogArticlesLayout = React.lazy(() => import('../components/sections/blog/pages/articles.layout'));
+const BlogArticlesPage = React.lazy(() => import('../components/sections/blog/pages/articles.page'));
 const BlogArticlePage = React.lazy(() => import('../components/sections/blog/pages/article.page'));
 const BlogLayout = React.lazy(() => import('../components/sections/blog/layout'));
 const NotFoundPage = React.lazy(() => import('../components/pages/not_found.page'));
@@ -18,8 +19,11 @@ const MainRouter: FC = () => {
                     <Route index element={<HomePage />} />
 
                     <Route path='/blog' element={<BlogLayout><Outlet /></BlogLayout>}>
-                        <Route index element={<BlogPage />} />
-                        <Route path='/blog/article/:articleId' element={<BlogArticlePage />} />
+                        <Route path='/blog' element={<BlogArticlesLayout><Outlet /></BlogArticlesLayout>}>
+                            <Route index element={<BlogArticlesPage />} />
+                            <Route path='/blog/topic/:topic' element={<BlogArticlesPage />} />
+                        </Route>
+                        <Route path='/blog/article/:articleSlug' element={<BlogArticlePage />} />
                     </Route>
 
                     <Route path='/strapi/login' element={<StrapiLoginPage />} />

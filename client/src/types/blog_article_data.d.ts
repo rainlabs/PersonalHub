@@ -16,5 +16,6 @@ export type BlogArticleData = {
     gallery?: {
         data: StrapiModel<StrapiImage>[]
     },
-    references?: ExternalReference[]
+    references?: ExternalReference[],
+    slug: string
 }
