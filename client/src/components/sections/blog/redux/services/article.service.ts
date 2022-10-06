@@ -13,6 +13,9 @@ export default {
             populate: {
                 imagePreview: {
                     fields: ['formats', 'url', 'caption']
+                },
+                location: {
+                    fields: ['displayName']
                 }
             },
             pagination: {
@@ -39,6 +42,9 @@ export default {
                 },
                 references: {
                     fields: ['link', 'displayName']
+                },
+                location: {
+                    fields: ['displayName']
                 }
             },
             publicationState: getPublicationState()

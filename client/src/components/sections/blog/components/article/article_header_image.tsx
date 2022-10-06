@@ -1,18 +1,21 @@
 import React, { FC } from 'react';
 import { BlogTopic } from '../../../../../types/blog_topic.enum';
+import { LocationData } from '../../../../../types/location_data';
 import { StrapiImage } from '../../../../../types/strapi.image';
 import { StrapiModel } from '../../../../../types/strapi.model';
 import uriUtils from '../../../../../utils/uri.utils';
 import AppNavLink from '../../../../_app_nav_link';
+import CityTag from '../city_tag';
 import BlogTopicTag from '../topic_tag';
 
 type Props = {
     title: string,
     topic: BlogTopic,
-    imageData: StrapiModel<StrapiImage>
+    imageData: StrapiModel<StrapiImage>,
+    location?: LocationData
 }
 
-const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData }) => {
+const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }) => {
     function getImageUrl() {
         if (imageData) {
             return uriUtils.getURL(imageData.attributes.formats.large.url)
@@ -29,7 +32,13 @@ const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData }) => {
 					<p className="text-white text-3xl md:text-5xl">
 						{ title }
 					</p>
-                    <div className='flex mt-3'>
+                    <div className='flex flex-col mt-3'>
+                        {
+                            location &&
+                            <CityTag className='mx-auto text-gray-300'>
+                                { location.displayName }
+                            </CityTag>
+                        }
 					    <BlogTopicTag topic={topic} className='mx-auto' />
                     </div>
                 </div>

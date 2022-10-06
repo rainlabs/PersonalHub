@@ -21,11 +21,11 @@ export const useArticle = (articleId: number) => {
     const article = useAppSelector(state => state.articles.currentArticle);
 
     useEffect(() => {
-        if (article === null) {
+        if (article === null || article.id !== articleId) {
             console.log(`fetchArticle ${articleId}`)
             dispatch(fetchArticleById(articleId))
         }
-    }, [dispatch])
+    }, [dispatch, articleId])
 
     return article
 }

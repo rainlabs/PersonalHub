@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { BlogArticleData } from '../../../../types/blog_article_data';
 import uriUtils from '../../../../utils/uri.utils';
 import AppNavLink from '../../../_app_nav_link';
+import CityTag from './city_tag';
 import BlogPublishedBlock from './published_block';
 import BlogTopicTag from './topic_tag';
 
@@ -34,12 +35,18 @@ const BlogArticlePreview: FC<Props> = ({id, data}) => {
                 </div>
             </div>
 
-            <div className="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto">
+            <div className="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto relative">
                 <div className='flex'>
                     <AppNavLink to={`/blog/article/${id}`} className='hover:text-gray-500 mr-auto'>
                         <h5 className="text-lg font-bold mb-3">{ data.title }</h5>
                     </AppNavLink>
                 </div>
+                {
+                    data.location &&
+                    <CityTag>
+                        { data.location.displayName }
+                    </CityTag>
+                }
                 <BlogTopicTag topic={data.topic} />
                 <BlogPublishedBlock>
                     { data.publishedAt }

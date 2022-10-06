@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_blog_locations",
+  "info": {
+    "displayName": "Location"
+  },
+  "options": {},
+  "attributes": {
+    "displayName": {
+      "type": "string"
+    }
+  }
+}

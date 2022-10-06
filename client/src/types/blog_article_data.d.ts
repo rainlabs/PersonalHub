@@ -12,6 +12,7 @@ export type BlogArticleData = {
     description: string,
     body?: string,
     originalDate?: string,
+    location?: LocationData
     gallery?: {
         data: StrapiModel<StrapiImage>[]
     },
