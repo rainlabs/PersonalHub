@@ -6,6 +6,7 @@ import EmojiAngryIcon from '../../../icons/emoji_angry';
 import KeyboardIcon from '../../../icons/keyboard_icon';
 import ReceiptIcon from '../../../icons/receipt_icon';
 import AppNavLink from '../../../_app_nav_link';
+import TopicName from './topic_name';
 
 const BlogNavigation: FC = () => {
     return (
@@ -16,7 +17,7 @@ const BlogNavigation: FC = () => {
                         <div className='w-4 h-4 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <CameraIcon />
                         </div>
-                        Прогулки
+                        <TopicName topic={BlogTopic.WALK} />
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
@@ -24,7 +25,7 @@ const BlogNavigation: FC = () => {
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <ChatIcon />
                         </div>
-                        Мысли
+                        <TopicName topic={BlogTopic.THOUGHT} />
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
@@ -32,7 +33,7 @@ const BlogNavigation: FC = () => {
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <EmojiAngryIcon />
                         </div>
-                        Бомбеж
+                        <TopicName topic={BlogTopic.BUTTHURT} />
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
@@ -40,7 +41,7 @@ const BlogNavigation: FC = () => {
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <KeyboardIcon />
                         </div>
-                        Программирование
+                        <TopicName topic={BlogTopic.PROGRAMMING} />
                     </AppNavLink>
                 </li>
                 <li className='px-5'>
@@ -48,7 +49,7 @@ const BlogNavigation: FC = () => {
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
                             <ReceiptIcon />
                         </div>
-                        Рецепты
+                        <TopicName topic={BlogTopic.RECEIPT} />
                     </AppNavLink>
                 </li>
             </ul>

@@ -14,8 +14,8 @@ const BlogGallery: FC<Props> = ({ className, children }) => {
     };
 
     return (
-        <section className={`overflow-hidden text-gray-700 ${className || ''}`}>
-            <div className="container px-5 py-6 mx-auto lg:py-12 lg:px-32">
+        <section className={` text-gray-700 ${className || ''}`}>
+            <div className="container py-6 mx-auto lg:py-12">
                 <LightGallery  onInit={onInit} speed={500} plugins={[lgZoom]} elementClassNames='flex flex-wrap -m-1 md:-m-2'>
                     { children }
                 </LightGallery>

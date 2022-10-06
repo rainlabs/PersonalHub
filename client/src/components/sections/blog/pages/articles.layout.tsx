@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import BlogHeader from '../components/header';
 import BlogHeroSlider from '../components/hero_slider';
 import BlogAvatar from '../components/avatar';

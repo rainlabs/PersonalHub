@@ -24,7 +24,7 @@ const BlogArticlePage: FC = () => {
         <div className='relative'>
             <BlogHeader />
             <BlogArticleHeaderImage imageData={article.attributes.imagePreview.data} title={article.attributes.title} topic={article.attributes.topic} location={article.attributes.location} />
-            <BlogArticleBody className='relative container px-6 py-8 max-w-6xl lg:max-w-7xl mx-auto mt-4 lg:-mt-16 bg-white shadow-lg rounded-lg mb-12'
+            <BlogArticleBody className='relative container px-24 py-12 max-w-6xl lg:max-w-7xl mx-auto mt-4 lg:-mt-16 bg-white shadow-lg rounded-lg mb-12'
                 publishedAt={article.attributes.publishedAt}
                 originalDate={article.attributes.originalDate}
                 gallery={article.attributes.gallery}
