@@ -23,7 +23,7 @@ const BlogArticlePreview: FC<Props> = ({id, data}) => {
 
     return (
         <div className="flex flex-wrap mb-6">
-            <div className="grow-0 shrink-0 basis-auto w-full md:w-3/12 px-3 mb-6 md:mb-0 ml-auto">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-3/12 px-3 mb-6 md:mb-0 ml-auto">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6" data-mdb-ripple="true" data-mdb-ripple-color="light">
                     <img src={ getImageUrl() } className="w-full" alt='preview' title='preview' />
                     {
@@ -42,9 +42,9 @@ const BlogArticlePreview: FC<Props> = ({id, data}) => {
                 </div>
             </div>
 
-            <div className="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto relative">
+            <div className="grow-0 shrink-0 basis-auto w-full lg:w-8/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto relative">
                 <div className='flex'>
-                    <AppNavLink to={`/blog/article/${data.slug}`} className='hover:text-gray-500 mr-auto'>
+                    <AppNavLink to={`/blog/article/${data.slug}`} className='hover:text-gray-500 mx-auto lg:mr-auto lg:ml-0'>
                         <h5 className="text-lg font-bold mb-3">{ data.title }</h5>
                     </AppNavLink>
                 </div>

@@ -11,7 +11,7 @@ export type ArticleGalleryItemProps = {
 
 const BlogGalleryItem: FC<ArticleGalleryItemProps> = ({ className, caption, thumbnail, original }) => {
     return (
-        <div className={`gallery-item flex flex-wrap w-1/3 ${className || ''}`} data-src={uriUtils.getURL(original)} data-sub-html={caption}>
+        <div className={`gallery-item flex flex-wrap lg:w-1/3 ${className || ''}`} data-src={uriUtils.getURL(original)} data-sub-html={caption}>
             <div className="w-full m-1 md:m-2 cursor-pointer">
                 <img alt="gallery" className="block object-cover object-center w-full h-full rounded-lg transition ease-in-out duration-300 shadow-none hover:shadow-lg hover:scale-105"
                     src={ uriUtils.getURL(thumbnail) } />

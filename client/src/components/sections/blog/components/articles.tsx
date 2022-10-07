@@ -23,9 +23,9 @@ const BlogArticles: FC<Props> = ({ topic }) => {
     }
 
     return (
-        <div ref={ref} className="container my-24 px-6 mx-auto">
-            <section className="mb-32 text-gray-800 text-center md:text-left">
-                <h2 className="text-3xl mb-12 text-center font-normal">
+        <div ref={ref} className="container my-12 lg:my-24 px-6 mx-auto">
+            <section className="mb-32 text-gray-800 text-center lg:text-left">
+                <h2 className="text-3xl mb-12 lg:mb-24 text-center font-normal">
                     {
                         topic ? <TopicName topic={topic} /> : <>Последние записи</>
                     }

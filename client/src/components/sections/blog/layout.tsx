@@ -11,7 +11,7 @@ const BlogLayout: FC<Props> = ({children}) => {
     return (
         <Provider store={Store}>
             <main className='blog-page font-montserrat'>
-                <div className='blog-container mx-11 mt-5'>
+                <div className='blog-container lg:mx-11 mt-5'>
                     { children }
                 </div>
             </main>

@@ -5,7 +5,7 @@ import BlogCarouselItemCaption from './carousel/carousel_item_caption';
 
 const BlogHeroSlider: FC = () => {
     return (
-        <BlogCarouselContainer carouselId='hero-slider' className='mt-7 mx-auto'>
+        <BlogCarouselContainer carouselId='hero-slider' className='mx-auto'>
             <BlogCarouselItem image='/slider/img2.jpg' alt='Наблюдать' active={true}>
                 <BlogCarouselItemCaption>Наблюдать</BlogCarouselItemCaption>
             </BlogCarouselItem>
