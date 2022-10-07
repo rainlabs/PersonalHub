@@ -68,6 +68,10 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

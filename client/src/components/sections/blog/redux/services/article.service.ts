@@ -19,7 +19,7 @@ function getTopicFilter(topic?: BlogTopic) {
 export default {
     async getLatestArticles(topic?: BlogTopic) {
         const strapiQuery = QueryString.stringify({
-            fields: ['topic', 'title', 'description', 'publishedAt', 'slug'],
+            fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount'],
             populate: {
                 imagePreview: {
                     fields: ['formats', 'url', 'caption']
@@ -44,7 +44,7 @@ export default {
 
     async getArticleById(articleSlug: string) {
         const strapiQuery = QueryString.stringify({
-            fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'body', 'originalDate'],
+            fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount', 'body', 'originalDate'],
             populate: {
                 imagePreview: {
                     fields: ['formats', 'url', 'caption']
@@ -59,13 +59,10 @@ export default {
                     fields: ['displayName']
                 }
             },
-            filters: {
-                slug: articleSlug
-            },
             publicationState: getPublicationState()
         }, { encodeValuesOnly: true })
 
-        const response = await StrapiService.get(`/articles?${strapiQuery}`)
-        return response.data.data.length > 0 ? response.data.data[0] : null
+        const response = await StrapiService.get(`/articles/${articleSlug}?${strapiQuery}`)
+        return response.data.data
     }
 }

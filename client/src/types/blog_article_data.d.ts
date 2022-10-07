@@ -17,5 +17,6 @@ export type BlogArticleData = {
         data: StrapiModel<StrapiImage>[]
     },
     references?: ExternalReference[],
-    slug: string
+    slug: string,
+    viewCount: number
 }

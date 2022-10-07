@@ -5,6 +5,7 @@ import ChatIcon from '../../../icons/chat_icon';
 import EmojiAngryIcon from '../../../icons/emoji_angry';
 import KeyboardIcon from '../../../icons/keyboard_icon';
 import ReceiptIcon from '../../../icons/receipt_icon';
+import TeaIcon from '../../../icons/tea_icon';
 import AppNavLink from '../../../_app_nav_link';
 import TopicName from './topic_name';
 
@@ -47,7 +48,7 @@ const BlogNavigation: FC = () => {
                 <li className='px-5'>
                     <AppNavLink to={`/blog/topic/${BlogTopic.RECEIPT}`} className='text-gray-600 hover:text-yellow-600 group relative'>
                         <div className='w-4 h-4 mr-1 align-top absolute -left-5 hidden group-hover:inline-block'>
-                            <ReceiptIcon />
+                            <TeaIcon />
                         </div>
                         <TopicName topic={BlogTopic.RECEIPT} />
                     </AppNavLink>

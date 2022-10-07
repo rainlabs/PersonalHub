@@ -5,6 +5,7 @@ import AppNavLink from '../../../_app_nav_link';
 import CityTag from './city_tag';
 import BlogPublishedBlock from './published_block';
 import BlogTopicTag from './topic_tag';
+import BlogArticleViewCount from './view_count';
 
 type Props = {
     id: number,
@@ -31,6 +32,9 @@ const BlogArticlePreview: FC<Props> = ({id, data}) => {
                             <div className='m-auto'>DRAFT</div>
                         </div>
                     }
+                    <BlogArticleViewCount>
+                        { `${data.viewCount || 0}` }
+                    </BlogArticleViewCount>
                     <AppNavLink to={`/blog/article/${data.slug}`}>
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
                         style={{backgroundColor: "rgba(251, 251, 251, 0.2)"}}></div>

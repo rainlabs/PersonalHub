@@ -15,7 +15,7 @@ const Translations: TopicTranslation = {
     [BlogTopic.THOUGHT]: 'Мысли',
     [BlogTopic.BUTTHURT]: 'Бомбеж',
     [BlogTopic.PROGRAMMING]: 'Программирование',
-    [BlogTopic.RECEIPT]: 'Рецепты',
+    [BlogTopic.RECEIPT]: 'Чай',
 }
 
 const TopicName: FC<Props> = ({ topic }) => {
