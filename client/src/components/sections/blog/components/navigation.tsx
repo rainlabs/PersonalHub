@@ -13,14 +13,16 @@ import HomeIcon from '../../../icons/home_icon';
 
 const BlogNavigation: FC = () => {
     const [open, setOpen] = useState(false)
-    const overlayClass = 'fixed flex lg:relative lg:bg-white lg:h-fit lg:w-fit lg:p-0 lg:mb-7 top-0 left-0 w-full p-10 z-10 h-screen pb-32 pt-12 bg-gray-100 text-white bg-opacity-100 transform delay-100 transition-all duration-300 lg:opacity-100 lg:translate-x-0 lg:items-center lg:mx-auto'
+    const overlayClass = "fixed flex top-0 left-0 px-10 pb-32 pt-12 z-10 h-screen w-full \
+                            bg-gray-100 transform delay-100 transition-all duration-300 \
+                            lg:translate-x-0 lg:items-center lg:mx-auto lg:opacity-90 lg:static lg:bg-white lg:h-auto lg:w-auto lg:p-5 lg:mb-2"
 
     function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
         setOpen(false)
     }
 
     return (
-        <div className='w-full flex'>
+        <div className='w-full lg:sticky lg:top-0 lg:z-10'>
             <button className="lg:hidden flex top-5 left-0 z-20 fixed w-10 h-10 text-white focus:outline-none" onClick={() => setOpen(!open)}>
                 <div className="absolute w-5 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                     <span className={`absolute h-0.5 w-5 bg-gray-800 transform transition duration-300 ease-in-out ${open ? "rotate-45 delay-200" : "-translate-y-1.5"}`} />
@@ -29,8 +31,8 @@ const BlogNavigation: FC = () => {
                 </div>
             </button>
             {/* <ul className='flex flex-none items-center uppercase font-bold text-xs mx-auto'> */}
-            <nav className={`${overlayClass} ${open ? "opacity-95 translate-x-0" : "opacity-0 -translate-x-full"}`}>
-                <ul className='flex flex-col text-2xl space-y-12 lg:space-y-0 lg:flex-row lg:uppercase lg:font-bold lg:text-xs m-auto'>
+            <nav className={`${overlayClass} ${open ? "opacity-90 translate-x-0" : "opacity-0 -translate-x-full"}`}>
+                <ul className='flex flex-col text-2xl space-y-10 lg:space-y-0 lg:flex-row lg:uppercase lg:font-bold lg:text-xs m-auto'>
                     <li className='px-5 visible lg:hidden'>
                         <AppNavLink to='/blog' className='text-gray-600 hover:text-pink-600 group relative' onClick={handleClick}>
                             <div className='w-7 h-7 align-top absolute -left-8 hidden group-hover:inline-block lg:w-4 lg:h-4 lg:-left-5'>
