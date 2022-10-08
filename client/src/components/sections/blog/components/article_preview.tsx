@@ -14,8 +14,8 @@ type Props = {
 
 const BlogArticlePreview: FC<Props> = ({id, data}) => {
     function getImageUrl() {
-        if (data.imagePreview.data) {
-            return uriUtils.getURL(data.imagePreview.data.attributes.formats.thumbnail.url)
+        if (data.imagePreview.media) {
+            return uriUtils.getURL(data.imagePreview.media.data.attributes.formats.thumbnail.url)
         }
 
         return '/preview.jpg'
@@ -25,7 +25,7 @@ const BlogArticlePreview: FC<Props> = ({id, data}) => {
         <div className="flex flex-wrap mb-6">
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-3/12 px-3 mb-6 md:mb-0 ml-auto">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                    <img src={ getImageUrl() } className="w-full" alt='preview' title='preview' />
+                    <img src={ getImageUrl() } className="w-full" alt={data.imagePreview.alt} />
                     {
                         !data.publishedAt &&
                         <div className='absolute flex top-0 right-0 bottom-0 left-0 w-full h-full text-white text-center items-center text-lg'>

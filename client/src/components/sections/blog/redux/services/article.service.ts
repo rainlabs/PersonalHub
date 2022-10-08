@@ -22,7 +22,11 @@ export default {
             fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount'],
             populate: {
                 imagePreview: {
-                    fields: ['formats', 'url', 'caption']
+                    populate: {
+                        media: {
+                            fields: ['formats', 'url', 'caption']
+                        }
+                    }
                 },
                 location: {
                     fields: ['displayName']
@@ -47,7 +51,11 @@ export default {
             fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount', 'body', 'originalDate'],
             populate: {
                 imagePreview: {
-                    fields: ['formats', 'url', 'caption']
+                    populate: {
+                        media: {
+                            fields: ['formats', 'url', 'caption']
+                        }
+                    }
                 },
                 gallery: {
                     fields: ['formats', 'url', 'caption']
@@ -57,6 +65,9 @@ export default {
                 },
                 location: {
                     fields: ['displayName']
+                },
+                seo: {
+                    fields: ['*']
                 }
             },
             publicationState: getPublicationState()

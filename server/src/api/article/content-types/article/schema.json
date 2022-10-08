@@ -36,14 +36,6 @@
       "default": "walk",
       "required": true
     },
-    "imagePreview": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "gallery": {
       "type": "media",
       "multiple": true,
@@ -72,6 +64,16 @@
     "viewCount": {
       "type": "integer",
       "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "imagePreview": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.shared-image"
     }
   }
 }

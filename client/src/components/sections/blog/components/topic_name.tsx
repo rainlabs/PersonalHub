@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { BlogTopic } from '../../../../types/blog_topic.enum';
-import LocationIcon from '../../../icons/location_icon';
 
 type Props = {
     topic: BlogTopic,
@@ -10,7 +9,7 @@ type TopicTranslation = {
     [key in BlogTopic]: string
 }
 
-const Translations: TopicTranslation = {
+export const TopicTranslations: TopicTranslation = {
     [BlogTopic.WALK]: 'Прогулки',
     [BlogTopic.THOUGHT]: 'Мысли',
     [BlogTopic.BUTTHURT]: 'Бомбеж',
@@ -20,7 +19,7 @@ const Translations: TopicTranslation = {
 
 const TopicName: FC<Props> = ({ topic }) => {
     return (
-        <>{ Translations[topic] }</>
+        <>{ TopicTranslations[topic] }</>
     )
 }
 

@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { BlogTopic } from '../../../../../types/blog_topic.enum';
 import { LocationData } from '../../../../../types/location_data';
-import { StrapiImage } from '../../../../../types/strapi.image';
-import { StrapiModel } from '../../../../../types/strapi.model';
+import { StrapiImagePreview } from '../../../../../types/strapi_image_preview';
 import uriUtils from '../../../../../utils/uri.utils';
 import AppNavLink from '../../../../_app_nav_link';
 import CityTag from '../city_tag';
@@ -11,14 +10,14 @@ import BlogTopicTag from '../topic_tag';
 type Props = {
     title: string,
     topic: BlogTopic,
-    imageData: StrapiModel<StrapiImage>,
+    imageData: StrapiImagePreview,
     location?: LocationData
 }
 
 const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }) => {
     function getImageUrl() {
         if (imageData) {
-            return uriUtils.getURL(imageData.attributes.formats.large.url)
+            return uriUtils.getURL(imageData.media.data.attributes.formats.large.url)
         }
 
         return '/preview.jpg'

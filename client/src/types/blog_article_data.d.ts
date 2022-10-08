@@ -4,19 +4,16 @@ import { StrapiModel } from "./strapi.model"
 
 export type BlogArticleData = {
     topic: BlogTopic,
-    imagePreview: {
-        data: StrapiModel<StrapiImage>
-    },
+    imagePreview: StrapiImagePreview,
     title: string,
     publishedAt: string,
     description: string,
     body?: string,
     originalDate?: string,
     location?: LocationData
-    gallery?: {
-        data: StrapiModel<StrapiImage>[]
-    },
+    gallery?: StrapiDataArray<StrapiImage>,
     references?: ExternalReference[],
     slug: string,
-    viewCount: number
+    viewCount: number,
+    seo?: StrapiSeo
 }

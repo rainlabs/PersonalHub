@@ -5,17 +5,15 @@ import AppNavLink from '../../../../_app_nav_link';
 import BlogGallery from '../gallery/gallery';
 import BlogPublishedBlock from '../published_block';
 import BlogGalleryItem from '../gallery/gallery_item';
-import { StrapiModel } from '../../../../../types/strapi.model';
 import BlogArticleReferences from './article_references';
 import { ExternalReference } from '../../../../../types/external_reference';
+import { StrapiDataArray } from '../../../../../types/strapi.data';
 
 type Props = {
     className?: string,
     publishedAt: string,
     originalDate?: string,
-    gallery?: {
-        data: StrapiModel<StrapiImage>[]
-    },
+    gallery?: StrapiDataArray<StrapiImage>
     references?: ExternalReference[],
     children: string
 }
