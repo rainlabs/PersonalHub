@@ -8,11 +8,14 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     build: {
-      outDir: './build'
+      outDir: './build/client'
     },
     server: {
       port: Number(process.env.VITE_PORT),
       host: true
+    },
+    ssr: {
+      format: 'cjs'
     }
   }
 })

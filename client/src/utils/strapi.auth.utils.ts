@@ -4,11 +4,13 @@ import { Buffer } from 'buffer';
 const storageKey = 'strapiJwtToken'
 
 function getJwtToken() {
-    return localStorage.getItem(storageKey)
+    return import.meta.env.SSR ? '' : localStorage.getItem(storageKey)
 }
 
 function setJwtToken(token: string) {
-    return localStorage.setItem(storageKey, token)
+    if (!import.meta.env.SSR) {
+        localStorage.setItem(storageKey, token)
+    }
 }
 
 function isJwtTokenValid() {

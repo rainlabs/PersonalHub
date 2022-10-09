@@ -1,5 +1,5 @@
 export interface StrapiMeta {
-    pagination: {
+    pagination?: {
         page: number,
         pageSize: number,
         pageCount: number,

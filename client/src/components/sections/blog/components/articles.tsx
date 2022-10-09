@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { BlogTopic } from '../../../../types/blog_topic.enum';
-import { useArticlesList } from '../hooks/article.hooks';
+import { useGetArticlesQuery } from '../redux/api/article.api';
 import BlogArticlePreview from './article_preview';
 import TopicName from './topic_name';
 
@@ -10,16 +10,24 @@ type Props = {
 
 const BlogArticles: FC<Props> = ({ topic }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const articlesList = useArticlesList(topic)
+    const { data: articles, isLoading, isFetching, isSuccess, isError } = useGetArticlesQuery(topic)
+
+    console.log(articles)
+    console.log(isFetching)
+    console.log(isError)
 
     useEffect(() => {
-        if (topic && articlesList.length > 0) {
+        if (isSuccess && topic && articles?.data && articles.data.length > 0) {
             ref.current?.scrollIntoView({behavior: 'smooth'});
         }
-    }, [topic, articlesList])
+    }, [topic, articles])
 
     function renderPreviews() {
-        return articlesList.map((el, i) => <BlogArticlePreview key={i} id={el.id} data={el.attributes} />)
+        if (isFetching || !articles) {
+            return <></>
+        }
+
+        return articles.data.map((el, i) => <BlogArticlePreview key={el.id} id={el.id} data={el.attributes} />)
     }
 
     return (

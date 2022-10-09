@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import MainRouter from './routes'
-import 'tw-elements'
+// import 'tw-elements'
 import './styles/App.scss'
 
-function App() {
+type Props = {
+    context?: {}
+}
+
+const App: FC<Props> = ({context}) => {
     return (
-        <MainRouter />
+        <HelmetProvider context={context}>
+            <MainRouter />
+        </HelmetProvider>
     )
 }
 

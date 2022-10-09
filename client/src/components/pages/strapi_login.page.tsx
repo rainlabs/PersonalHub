@@ -13,7 +13,7 @@ const StrapiLoginPage: FC = () => {
             identifier: username.current?.value,
             password: password.current?.value
         }).then(response => {
-            console.log(response.data)
+            // console.log(response.data)
 
             if (response.data.jwt) {
                 strapiAuthUtils.setJwtToken(response.data.jwt)

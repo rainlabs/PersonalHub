@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta name="googlebot" content="noindex" />
-    <title>Владимир Зяблицкий | Личный Хаб</title>
+    <!--ssr-title-->
+    <!--ssr-meta-->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--ssr-body--></div>
+    <script>
+      // WARNING: See the following for security issues around embedding JSON in HTML:
+      // https://redux.js.org/usage/server-rendering#security-considerations
+      /*<!--ssr-preloaded-state-->*/
+    </script>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
