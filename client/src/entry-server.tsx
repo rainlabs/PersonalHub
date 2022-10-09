@@ -7,6 +7,8 @@ import Store from './components/sections/blog/redux/store';
 import { ArticleApiSlice } from './components/sections/blog/redux/api/article.api';
 import { BlogTopic } from './types/blog_topic.enum';
 import fetch, {Headers, Request, Response } from 'node-fetch';
+import { ICookie } from 'cookie-universal';
+import cookieUtils from './utils/cookie.utils';
 
 
 Object.assign(globalThis, {
@@ -24,7 +26,8 @@ export const resetStore = () => {
     Store.dispatch( ArticleApiSlice.util.resetApiState() )
 }
 
-export const prefetchApiData = async (path: string) => {
+export const prefetchApiData = async (path: string, cookies: ICookie) => {
+    cookieUtils.overrideCookies(cookies)
     dispatchApiAction(path)
     await Promise.all(ArticleApiSlice.util.getRunningOperationPromises())
 }

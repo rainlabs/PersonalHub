@@ -2,6 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as dotenv from 'dotenv'
+import Cookie from 'cookie-universal';
+
 dotenv.config()
 import express from 'express'
 
@@ -60,6 +62,7 @@ export async function createServer(
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl
+      const cookies = Cookie(req, res)
 
       let template, entry
       if (!isProd) {
@@ -74,7 +77,7 @@ export async function createServer(
 
       const context = {}
 
-      await entry.prefetchApiData(url)
+      await entry.prefetchApiData(url, cookies)
       const appHtml = await entry.renderToPipe(url, context)
       const { helmet } = context
 
