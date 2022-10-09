@@ -77,7 +77,7 @@ function buildArticleQuery() {
 export const ArticleApiSlice = createApi({
     reducerPath: 'articles',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${import.meta.env.VITE_BACKEND_URI}/api/articles`,
+        baseUrl: `${import.meta.env.VITE_BACKEND_SSR_URI}/api/articles`,
         prepareHeaders: (headers, { getState }) => {
             headers.set('Content-type', 'application/json')
             headers.set('Accept', 'application/json')

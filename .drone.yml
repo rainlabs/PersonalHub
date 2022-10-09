@@ -72,6 +72,7 @@ steps:
 - name: restart services
   commands:
   - systemctl restart personal_hub.service
+  - systemctl restart personal_hub_ssr.service
   when:
     event:
     - promote
