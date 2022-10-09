@@ -20,9 +20,7 @@ const BlogArticlePage: FC = () => {
     }
 
     return (
-        <div className='relative'>
-            <BlogHeader />
-            <BlogNavigation />
+        <>
             <Helmet>
                 <title>{ article.data.attributes.title }</title>
                 <meta name="description" content={ article.data.attributes.seo?.metaDescription } />
@@ -37,7 +35,7 @@ const BlogArticlePage: FC = () => {
                 >
                 { article.data.attributes.body || '' }
             </BlogArticleBody>
-        </div>
+        </>
     )
 }
 

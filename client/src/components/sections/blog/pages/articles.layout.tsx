@@ -12,8 +12,6 @@ type Props = {
 const BlogArticlesLayout: FC<Props> = ({ children }) => {
     return (
         <>
-            <BlogHeader />
-            <BlogNavigation />
             <Helmet>
                 <title>Владимир Зяблицкий | Личный Блог</title>
                 <meta name="description" content='Личный блог, фотографии и мысли' />

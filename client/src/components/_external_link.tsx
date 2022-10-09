@@ -9,7 +9,7 @@ type Props = {
 
 const ExternalLink: FC<Props> = ({to, target, className, children}) => {
     return (
-        <a href={to} className={`text-gray-600 hover:text-gray-400 ${className || ''}`} target={target || '_self'}>
+        <a href={to} rel='nofollow' className={`text-gray-600 hover:text-gray-400 ${className || ''}`} target={target || '_self'}>
             { children }
         </a>
     )

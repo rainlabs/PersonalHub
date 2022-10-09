@@ -34,21 +34,21 @@ const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gall
     }
 
     return (
-        <div className={`${className || ''}`}>
-            <BlogPublishedBlock className='text-right mb-0'>
+        <article className={`${className || ''}`}>
+            <BlogPublishedBlock className='text-right mb-0 published-date'>
                 { publishedAt }
             </BlogPublishedBlock>
             {
                 originalDate &&
-                <BlogPublishedBlock className='text-right mb-0' label='Архив'>
+                <BlogPublishedBlock className='text-right mb-0 original-date' label='Архив'>
                     { originalDate }
                 </BlogPublishedBlock>
             }
             <div className='indent-12 text-justify'></div>
-            <div className='mt-4' dangerouslySetInnerHTML={{__html: children}}></div>
+            <div className='mt-4 article-text' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
             <BlogArticleReferences references={references || []} />
-        </div>
+        </article>
     )
 }
 
