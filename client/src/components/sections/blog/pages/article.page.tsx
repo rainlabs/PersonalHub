@@ -28,6 +28,7 @@ const BlogArticlePage: FC = () => {
             </Helmet>
             <BlogArticleHeaderImage imageData={article.data.attributes.imagePreview} title={article.data.attributes.title} topic={article.data.attributes.topic} location={article.data.attributes.location} />
             <BlogArticleBody className='relative container px-8 py-6 lg:px-24 lg:py-12 max-w-6xl lg:max-w-7xl mx-auto mt-4 lg:-mt-16 bg-white lg:shadow-lg lg:rounded-lg mb-12'
+                description={article.data.attributes.description}
                 publishedAt={article.data.attributes.publishedAt}
                 originalDate={article.data.attributes.originalDate}
                 gallery={article.data.attributes.gallery}

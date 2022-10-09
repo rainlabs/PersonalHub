@@ -24,7 +24,7 @@ const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }
     }
 
     return (
-        <div className="w-full m-0 p-0 bg-cover bg-center relative" style={{backgroundImage: `url('${getImageUrl()}')`, height: '70vh', maxHeight: '640px'}}>
+        <div id='image-preview' data-image-src={getImageUrl()} className="w-full m-0 p-0 bg-cover bg-center relative" style={{backgroundImage: `url('${getImageUrl()}')`, height: '70vh', maxHeight: '640px'}}>
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-30"></div>
             <div className="relative container max-w-4xl mx-auto pt-40 md:pt-24 text-center break-normal">
                 <h1 className="text-white text-3xl md:text-5xl">

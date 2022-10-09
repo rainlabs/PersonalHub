@@ -23,7 +23,7 @@ const ComponentMap: TopicMap = {
 
 const BlogTopicTag: FC<Props> = ({topic, className}) => {
     const Component = ComponentMap[topic];
-    return <Component className={className} />
+    return <Component className={`${className} topic`} />
 }
 
 export default BlogTopicTag;

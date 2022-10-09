@@ -11,6 +11,7 @@ import { StrapiDataArray } from '../../../../../types/strapi.data';
 
 type Props = {
     className?: string,
+    description: string,
     publishedAt: string,
     originalDate?: string,
     gallery?: StrapiDataArray<StrapiImage>
@@ -18,7 +19,7 @@ type Props = {
     children: string
 }
 
-const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, references, children }) => {
+const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, originalDate, gallery, references, children }) => {
     function renderGallery() {
         if (gallery && gallery.data && gallery.data.length > 0) {
             return (
@@ -34,7 +35,7 @@ const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gall
     }
 
     return (
-        <article className={`${className || ''}`}>
+        <article data-description={description} className={`${className || ''}`}>
             <BlogPublishedBlock className='text-right mb-0 published-date'>
                 { publishedAt }
             </BlogPublishedBlock>
