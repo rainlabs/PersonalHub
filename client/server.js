@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import * as dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -103,8 +105,8 @@ export async function createServer(
 
 if (!isTest) {
   createServer().then(({ app }) =>
-    app.listen(3000, () => {
-      console.log(`http://localhost:${3000}`)
+    app.listen(process.env.VITE_PORT, () => {
+      console.log(`http://localhost:${process.env.VITE_PORT}`)
     })
   )
 }

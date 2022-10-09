@@ -12,10 +12,6 @@ const BlogArticles: FC<Props> = ({ topic }) => {
     const ref = useRef<HTMLDivElement>(null);
     const { data: articles, isLoading, isFetching, isSuccess, isError } = useGetArticlesQuery(topic)
 
-    console.log(articles)
-    console.log(isFetching)
-    console.log(isError)
-
     useEffect(() => {
         if (isSuccess && topic && articles?.data && articles.data.length > 0) {
             ref.current?.scrollIntoView({behavior: 'smooth'});
