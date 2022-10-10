@@ -49,6 +49,7 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
             <div className='mt-4 article-text' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
             <BlogArticleReferences references={references || []} />
+            <div id='article-footer' className='hidden'></div>
         </article>
     )
 }
