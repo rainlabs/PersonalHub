@@ -8,11 +8,10 @@ import BlogTopicTag from './topic_tag';
 import BlogArticleViewCount from './view_count';
 
 type Props = {
-    id: number,
     data: BlogArticleData
 }
 
-const BlogArticlePreview: FC<Props> = ({id, data}) => {
+const BlogArticlePreview: FC<Props> = ({data}) => {
     function getImageUrl() {
         if (data.imagePreview.media) {
             return uriUtils.getURL(data.imagePreview.media.data.attributes.formats.thumbnail.url)

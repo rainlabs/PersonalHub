@@ -7,7 +7,7 @@ import '../../../../styles/swiper.scss'
 
 const BlogHeroSlider: FC = () => {
     return (
-        <Swiper effect={"fade"} autoplay={{delay: 5000, disableOnInteraction: false}} id='hero-slider' navigation={true} pagination={true} loop={true} lazy={true} modules={[Navigation, Pagination, Autoplay, EffectFade]} className='carousel slide relative mx-auto'>
+        <Swiper effect={"fade"} autoplay={{delay: 5000, disableOnInteraction: false}} id='hero-slider' navigation={true} pagination={{clickable: true}} loop={true} lazy={true} modules={[Navigation, Pagination, Autoplay, EffectFade]} className='carousel slide relative mx-auto'>
             <SwiperSlide>
                 <BlogCarouselItem image='/slider/img2.jpg' alt='Наблюдать' />
             </SwiperSlide>

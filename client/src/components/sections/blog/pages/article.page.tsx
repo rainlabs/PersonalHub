@@ -6,6 +6,7 @@ import BlogArticleBody from '../components/article/article_body';
 import BlogNavigation from '../components/navigation';
 import { Helmet } from 'react-helmet-async';
 import { useGetArticleBySlugQuery } from '../redux/api/article.api';
+import Loading from '../../../_loading';
 
 type ArticleParams = {
     articleSlug: string
@@ -16,7 +17,7 @@ const BlogArticlePage: FC = () => {
     const { data: article, isLoading, isFetching, isSuccess, isError } = useGetArticleBySlugQuery(articleSlug || '')
 
     if (isFetching || !article || article.data.attributes.slug !== articleSlug) {
-        return <div></div>
+        return <Loading className='h-screen' />
     }
 
     function robotsIndex() {

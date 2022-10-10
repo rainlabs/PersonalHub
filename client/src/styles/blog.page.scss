@@ -1,9 +1,9 @@
 .blog-avatar {
-    max-width: 14rem;
+    max-width: 10rem;
 }
 
 @screen lg {
     .blog-avatar {
-        bottom: 7rem;
+        max-width: 14rem;
     }
 }

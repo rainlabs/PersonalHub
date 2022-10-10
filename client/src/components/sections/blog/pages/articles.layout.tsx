@@ -1,8 +1,6 @@
 import React, { FC, useRef } from 'react';
-import BlogHeader from '../components/header';
 import BlogHeroSlider from '../components/hero_slider';
 import BlogAvatar from '../components/avatar';
-import BlogNavigation from '../components/navigation';
 import { Helmet } from 'react-helmet-async';
 
 type Props = {
@@ -19,7 +17,9 @@ const BlogArticlesLayout: FC<Props> = ({ children }) => {
             </Helmet>
             <BlogHeroSlider />
             <BlogAvatar />
-            { children }
+            <div className='relative bottom-20 lg:static'>
+                { children }
+            </div>
         </>
     )
 }
