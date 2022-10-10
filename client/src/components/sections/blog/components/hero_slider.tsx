@@ -1,21 +1,23 @@
 import React, { FC } from 'react';
-import BlogCarouselContainer from './carousel/carousel_container';
 import BlogCarouselItem from './carousel/carousel_item';
-import BlogCarouselItemCaption from './carousel/carousel_item_caption';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Lazy, Autoplay, EffectFade } from "swiper";
+import '../../../../styles/swiper.scss'
 
 const BlogHeroSlider: FC = () => {
     return (
-        <BlogCarouselContainer carouselId='hero-slider' className='mx-auto'>
-            <BlogCarouselItem image='/slider/img2.jpg' alt='Наблюдать' active={true}>
-                <BlogCarouselItemCaption>Наблюдать</BlogCarouselItemCaption>
-            </BlogCarouselItem>
-            <BlogCarouselItem image='/slider/img1.jpg' alt='Размышлять'>
-                <BlogCarouselItemCaption>Размышлять</BlogCarouselItemCaption>
-            </BlogCarouselItem>
-            <BlogCarouselItem image='/slider/img3.jpg' alt='Искать свой путь'>
-                <BlogCarouselItemCaption>Искать свой путь</BlogCarouselItemCaption>
-            </BlogCarouselItem>
-        </BlogCarouselContainer>
+        <Swiper effect={"fade"} autoplay={{delay: 5000, disableOnInteraction: false}} id='hero-slider' navigation={true} pagination={true} loop={true} lazy={true} modules={[Navigation, Pagination, Autoplay, EffectFade]} className='carousel slide relative mx-auto'>
+            <SwiperSlide>
+                <BlogCarouselItem image='/slider/img2.jpg' alt='Наблюдать' />
+            </SwiperSlide>
+            <SwiperSlide>
+                <BlogCarouselItem image='/slider/img1.jpg' alt='Размышлять' />
+            </SwiperSlide>
+            <SwiperSlide>
+                <BlogCarouselItem image='/slider/img3.jpg' alt='Искать свой путь' />
+            </SwiperSlide>
+        </Swiper>
     )
 }
 

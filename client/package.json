@@ -30,6 +30,7 @@
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "serve-static": "^1.15.0",
+    "swiper": "^8.4.3",
     "tw-elements": "^1.0.0-alpha12"
   },
   "devDependencies": {
