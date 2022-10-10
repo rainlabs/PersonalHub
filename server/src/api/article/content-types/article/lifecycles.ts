@@ -17,25 +17,5 @@ export default {
                 });
             }
         }
-    },
-    async afterUpdate(event) {
-        // const { result, params } = event;
-        // // console.log(event)
-
-        // let apiToken = "";
-        // let chatId = "";
-        // let text = "Hello world!";
-
-        // let urlString = `https://api.telegram.org/bot${apiToken}/sendMessage?chat_id=${chatId}&text=${text}`;
-
-        // let client = axios.create({
-        //     baseURL: `https://api.telegram.org/bot${apiToken}`
-        // })
-
-        // await client.post(`/sendMessage?chat_id=${chatId}&text=${result.body}`).then(response => {
-        //     console.log(response.data)
-        // }).catch(e => {
-        //     console.log(e)
-        // })
     }
 }
