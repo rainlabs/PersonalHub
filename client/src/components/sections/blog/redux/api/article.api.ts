@@ -48,7 +48,7 @@ function buildArticlesQuery(topic?: BlogTopic) {
 
 function buildArticleQuery() {
     return QueryString.stringify({
-        fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount', 'body', 'originalDate'],
+        fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount', 'body', 'originalDate', 'hidden'],
         populate: {
             imagePreview: {
                 populate: {

@@ -15,5 +15,6 @@ export type BlogArticleData = {
     references?: ExternalReference[],
     slug: string,
     viewCount: number,
-    seo?: StrapiSeo
+    seo?: StrapiSeo,
+    hidden: boolean
 }

@@ -19,12 +19,18 @@ const BlogArticlePage: FC = () => {
         return <div></div>
     }
 
+    function robotsIndex() {
+        return article?.data.attributes.hidden ? 'noindex, nofollow' : 'index'
+    }
+
     return (
         <>
             <Helmet>
                 <title>{ article.data.attributes.title }</title>
                 <meta name="description" content={ article.data.attributes.seo?.metaDescription } />
                 <meta name="keywords" content={ article.data.attributes.seo?.keywords } />
+                <meta name="robots" content={ robotsIndex() } />
+                <meta name="googlebot" content={ robotsIndex() } />
             </Helmet>
             <BlogArticleHeaderImage imageData={article.data.attributes.imagePreview} title={article.data.attributes.title} topic={article.data.attributes.topic} location={article.data.attributes.location} />
             <BlogArticleBody className='relative container px-8 py-6 lg:px-24 lg:py-12 max-w-6xl lg:max-w-7xl mx-auto mt-4 lg:-mt-16 bg-white lg:shadow-lg lg:rounded-lg mb-12'

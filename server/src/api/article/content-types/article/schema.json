@@ -74,6 +74,10 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.shared-image"
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
