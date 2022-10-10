@@ -36,12 +36,12 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
 
     return (
         <article data-description={description} className={`${className || ''}`}>
-            <BlogPublishedBlock className='text-right mb-0 published-date'>
+            <BlogPublishedBlock id='published-date' className='text-right mb-0'>
                 { publishedAt }
             </BlogPublishedBlock>
             {
                 originalDate &&
-                <BlogPublishedBlock className='text-right mb-0 original-date' label='Архив'>
+                <BlogPublishedBlock id='original-date' className='text-right mb-0' label='Архив'>
                     { originalDate }
                 </BlogPublishedBlock>
             }
