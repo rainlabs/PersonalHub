@@ -7,9 +7,6 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::article.article', ({strapi}) => ({
     async find(ctx) {
         ctx.query = { ...ctx.query, ...{filters: {hidden: false}} }
-        console.log(ctx.query)
-        console.log('findMany')
-
         return super.find(ctx)
     },
     async findOne(ctx) {
