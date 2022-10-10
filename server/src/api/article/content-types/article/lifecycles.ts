@@ -1,8 +1,10 @@
+import axios from 'axios'
+
 export default {
     afterFindMany(event) {
         const { result, params } = event;
 
-        if (result.length === 1 && params.where.slug) {
+        if (result.length === 1 && params.where?.slug) {
             const article = result[0]
             const ctx = strapi['requestContext'].get();
 
@@ -15,5 +17,8 @@ export default {
                 });
             }
         }
+    },
+    async afterUpdate(event) {
+
     }
 }
