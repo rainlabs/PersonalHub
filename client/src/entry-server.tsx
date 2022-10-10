@@ -82,20 +82,20 @@ interface ApiRouteMatch {
 const dispatchApiAction = (path: string): boolean => {
     const routes: ApiRouteMatch[] = [
         {
-            regexp: /^\/blog$/,
+            regexp: /^\/blog(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
                 Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(undefined) )
             }
         },
         {
-            regexp: /^\/blog\/topic\/(.*?)(\/|$)/,
+            regexp: /^\/blog\/topic\/(.*?)(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
                 const topic = match[1] as BlogTopic
                 Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(topic) )
             }
         },
         {
-            regexp: /^\/blog\/article\/(.*?)(\/|$)/,
+            regexp: /^\/blog\/article\/(.*?)(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
                 Store.dispatch( ArticleApiSlice.endpoints.getArticleBySlug.initiate(match[1]) )
             }
