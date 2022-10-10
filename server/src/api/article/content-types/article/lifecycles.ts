@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
     afterFindMany(event) {
@@ -22,8 +22,8 @@ export default {
         // const { result, params } = event;
         // // console.log(event)
 
-        // let apiToken = "5566891040:AAGN2LftT0L-ZfwZoxRvMX2KRKWEJUkqVk4";
-        // let chatId = "@RainStream";
+        // let apiToken = "";
+        // let chatId = "";
         // let text = "Hello world!";
 
         // let urlString = `https://api.telegram.org/bot${apiToken}/sendMessage?chat_id=${chatId}&text=${text}`;
