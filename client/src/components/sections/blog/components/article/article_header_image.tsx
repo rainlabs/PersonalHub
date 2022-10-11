@@ -24,21 +24,23 @@ const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }
     }
 
     return (
-        <div className="w-full m-0 p-0 bg-cover bg-center relative" style={{backgroundImage: `url('${getImageUrl()}')`, height: '70vh', maxHeight: '640px'}}>
-            <figure id='image-preview' className='hidden'><img src={getImageUrl()} /></figure>
+        <div className="w-full m-0 p-0 bg-cover bg-center relative">
+            <figure id='image-preview' className='w-full object-cover blog-hero-slider'><img className='object-cover object-center w-full h-full' src={getImageUrl()} /></figure>
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-30"></div>
-            <div className="relative container max-w-4xl mx-auto pt-40 md:pt-24 text-center break-normal">
-                <h1 className="text-white text-3xl md:text-5xl">
-                    { title }
-                </h1>
-                <div className='flex flex-col mt-3'>
-                    {
-                        location &&
-                        <CityTag className='mx-auto text-gray-300'>
-                            { location.displayName }
-                        </CityTag>
-                    }
-                    <BlogTopicTag topic={topic} className='mx-auto' />
+            <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full max-w-4xl mx-auto text-center break-normal flex items-center">
+                <div className='mx-auto'>
+                    <h1 className="text-white text-3xl md:text-5xl">
+                        { title }
+                    </h1>
+                    <div className='flex flex-col mt-3'>
+                        {
+                            location &&
+                            <CityTag className='mx-auto text-gray-300'>
+                                { location.displayName }
+                            </CityTag>
+                        }
+                        <BlogTopicTag topic={topic} className='mx-auto' />
+                    </div>
                 </div>
             </div>
         </div>
