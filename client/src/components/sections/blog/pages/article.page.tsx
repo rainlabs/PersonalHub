@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import BlogHeader from '../components/header';
 import { useParams } from 'react-router-dom';
 import BlogArticleHeaderImage from '../components/article/article_header_image';
@@ -15,6 +15,12 @@ type ArticleParams = {
 const BlogArticlePage: FC = () => {
     const { articleSlug } = useParams<ArticleParams>()
     const { data: article, isLoading, isFetching, isSuccess, isError } = useGetArticleBySlugQuery(articleSlug || '')
+
+    useEffect(() => {
+        if (isSuccess && !import.meta.env.SSR) {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+    }, [isSuccess])
 
     if (isFetching || !article || article.data.attributes.slug !== articleSlug) {
         return <Loading className='h-screen' />

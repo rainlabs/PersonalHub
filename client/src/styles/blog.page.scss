@@ -2,8 +2,18 @@
     max-width: 10rem;
 }
 
+.blog-hero-slider {
+    height: auto;
+    max-height: auto;
+}
+
 @screen lg {
     .blog-avatar {
         max-width: 14rem;
+    }
+
+    .blog-hero-slider {
+        height: 80vh;
+        max-height: 860px;
     }
 }

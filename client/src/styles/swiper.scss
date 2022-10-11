@@ -8,7 +8,6 @@
     width: 15%;
     height: 100%;
     top: 20px;
-    right: 0;
     color: #fff;
     opacity: .5;
     transition: opacity .15s ease;
@@ -21,6 +20,14 @@
     &:hover {
         opacity: 1;
     }
+}
+
+.swiper-button-prev {
+    left: 0;
+}
+
+.swiper-button-next {
+    right: 0;
 }
 
 .swiper-pagination-bullet {
@@ -53,7 +60,13 @@
     text-align: left;
 }
 
-@screen lg {
+.swiper-horizontal {
+    > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 5%;
+    }
+}
+
+.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
     .swiper-button-next, .swiper-button-prev {
         visibility: visible;
     }

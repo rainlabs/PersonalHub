@@ -85,6 +85,7 @@ const dispatchApiAction = (path: string): boolean => {
             regexp: /^\/blog\/topic\/(.*?)(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
                 const topic = match[1] as BlogTopic
+                Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
                 Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(topic) )
             }
         },
@@ -97,6 +98,7 @@ const dispatchApiAction = (path: string): boolean => {
         {
             regexp: /^\/blog(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
+                Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
                 Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(undefined) )
             }
         }

@@ -6,6 +6,7 @@ import { BlogTopic } from '../../../../../types/blog_topic.enum';
 import { StrapiModel } from '../../../../../types/strapi.model';
 import { StrapiResponse } from '../../../../../types/strapi_response';
 import strapiAuthUtils from '../../../../../utils/strapi.auth.utils';
+import { BlogHeroSlideData } from '../../../../../types/blog_hero_slide_data';
 
 function getPublicationState() {
     return strapiAuthUtils.isJwtTokenValid() ? 'preview' : 'live'
@@ -74,10 +75,25 @@ function buildArticleQuery() {
     }, { encodeValuesOnly: true })
 }
 
+function buildHeroSlidesQuery() {
+    return QueryString.stringify({
+        populate: {
+            image: {
+                populate: {
+                    media: {
+                        fields: ['formats', 'url', 'caption']
+                    }
+                }
+            }
+        },
+        publicationState: getPublicationState()
+    }, { encodeValuesOnly: true })
+}
+
 export const ArticleApiSlice = createApi({
     reducerPath: 'articles',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${import.meta.env.VITE_BACKEND_SSR_URI}/api/articles`,
+        baseUrl: `${import.meta.env.VITE_BACKEND_SSR_URI}/api`,
         prepareHeaders: (headers, { getState }) => {
             headers.set('Content-type', 'application/json')
             headers.set('Accept', 'application/json')
@@ -91,12 +107,15 @@ export const ArticleApiSlice = createApi({
     }),
     endpoints: (builder) => ({
         getArticles: builder.query<StrapiResponse<StrapiModel<BlogArticleData>[]>, BlogTopic | undefined>({
-            query: (topic?: BlogTopic) => `?${buildArticlesQuery(topic)}`
+            query: (topic?: BlogTopic) => `/articles?${buildArticlesQuery(topic)}`
         }),
         getArticleBySlug: builder.query<StrapiResponse<StrapiModel<BlogArticleData>>, string>({
-            query: (articleSlug: string) => `/${articleSlug}?${buildArticleQuery()}`
-        })
+            query: (articleSlug: string) => `/articles/${articleSlug}?${buildArticleQuery()}`
+        }),
+        getHeroSlides: builder.query<StrapiResponse<StrapiModel<BlogHeroSlideData>[]>, void>({
+            query: () => `/hero-slides?${buildHeroSlidesQuery()}`
+        }),
     })
 })
 
-export const { useGetArticlesQuery, useGetArticleBySlugQuery } = ArticleApiSlice
+export const { useGetArticlesQuery, useGetArticleBySlugQuery, useGetHeroSlidesQuery } = ArticleApiSlice
