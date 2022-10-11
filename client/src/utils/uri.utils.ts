@@ -1,9 +1,7 @@
 export default {
     getURL(input_url: string) {
         if (input_url.length > 0 && input_url[0] === '/') {
-            if (input_url.startsWith('/slider/', 0) === false ) {
-                return `${import.meta.env.VITE_BACKEND_URI}${input_url}`
-            }
+            return `${import.meta.env.VITE_BACKEND_URI}${input_url}`
         }
 
         return input_url
