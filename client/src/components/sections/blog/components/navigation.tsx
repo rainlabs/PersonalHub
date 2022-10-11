@@ -13,7 +13,7 @@ import HomeIcon from '../../../icons/home_icon';
 
 const BlogNavigation: FC = () => {
     const [open, setOpen] = useState(false)
-    const overlayClass = "fixed flex top-0 left-0 px-10 pb-32 pt-12 z-30 h-screen w-full \
+    const overlayClass = "fixed flex top-0 left-0 px-10 pb-32 pt-12 z-20 h-screen w-full \
                             bg-gray-100 transform delay-100 transition-all duration-300 \
                             lg:translate-x-0 lg:items-center lg:mx-auto lg:opacity-90 lg:static lg:bg-white lg:h-auto lg:w-auto lg:p-5 lg:mb-2"
 
@@ -23,7 +23,7 @@ const BlogNavigation: FC = () => {
 
     return (
         <div className='w-full lg:sticky lg:top-0 lg:z-20'>
-            <button className="lg:hidden flex top-5 left-0 z-20 fixed w-10 h-10 text-white focus:outline-none" onClick={() => setOpen(!open)}>
+            <button className="lg:hidden flex top-5 left-0 z-30 fixed w-10 h-10 text-white focus:outline-none" onClick={() => setOpen(!open)}>
                 <div className="absolute w-5 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                     <span className={`absolute h-0.5 w-5 bg-gray-800 transform transition duration-300 ease-in-out ${open ? "rotate-45 delay-200" : "-translate-y-1.5"}`} />
                     <span className={`absolute h-0.5 bg-gray-800 transform transition-all duration-200 ease-in-out ${open ? "w-0 opacity-50" : "w-5 delay-200 opacity-100"}`} />
