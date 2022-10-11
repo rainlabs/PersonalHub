@@ -26,7 +26,7 @@ const BlogHeroSlider: FC = () => {
     }
 
     return (
-        <Swiper effect={"fade"} autoplay={{delay: 500000, disableOnInteraction: false}} navigation={true} pagination={{clickable: true}} loop={true} lazy={true} modules={[Navigation, Pagination, Autoplay, EffectFade, Lazy]} className='mx-auto object-cover blog-hero-slider'>
+        <Swiper effect={"fade"} autoplay={{delay: 5000, disableOnInteraction: false}} navigation={true} pagination={{clickable: true}} loop={true} lazy={true} modules={[Navigation, Pagination, Autoplay, EffectFade, Lazy]} className='mx-auto object-cover blog-hero-slider'>
             { renderSlides() }
         </Swiper>
     )
