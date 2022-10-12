@@ -70,6 +70,66 @@
     align-self: center;
 }
 
+.swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader, .swiper:not(.swiper-watch-progress) .swiper-lazy-preloader {
+    animation: dotFlashing .5s infinite linear alternate;
+}
+
+.swiper-lazy-preloader {
+    border: none;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 5px;
+    background-color: white;
+    color: white;
+    animation-delay: .5s;
+
+    &::before, &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+    }
+
+    &::before {
+        left: -15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: white;
+        color: white;
+        animation: dotFlashing 1s infinite alternate;
+        animation-delay: 0s;
+    }
+
+    &::after {
+        left: 15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: white;
+        color: white;
+        animation: dotFlashing 1s infinite alternate;
+        animation-delay: 1s;
+    }
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: white;
+    }
+    50% {
+        background-color: #eeeeee;
+    }
+    100% {
+        background-color: #666666;
+    }
+}
+
+
+
+
 @screen lg {
     .swiper-button-next, .swiper-button-prev {
         visibility: visible;
