@@ -5,14 +5,15 @@ type Props = {
     to: string,
     makeActive?: boolean,
     className?: string,
+    activeClassName?: string,
     children?: React.ReactNode,
     onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
-const AppNavLink: FC<Props> = ({to, makeActive, className, children, onClick}) => {
+const AppNavLink: FC<Props> = ({to, makeActive, className, activeClassName, children, onClick}) => {
     return (
-        <NavLink onClick={onClick} to={to} className={({ isActive }) =>
-                isActive || makeActive ? `text-white ${className}` : `hover:text-white ${className}`
+        <NavLink onClick={onClick} end to={to} className={({ isActive }) =>
+                isActive || makeActive ? `text-white ${className || ''} ${activeClassName || ''}` : `hover:text-white ${className || ''}`
             }
         >
             { children }
