@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Provider } from 'react-redux'
 import Store from './redux/store';
-import '../../../styles/blog.page.scss'
 import BlogHeader from './components/header';
 import BlogNavigation from './components/navigation';
+import BlogFooter from './components/footer';
+import '../../../styles/blog.page.scss'
 
 type Props = {
     children?: React.ReactNode
@@ -20,6 +21,7 @@ const BlogLayout: FC<Props> = ({children}) => {
                         { children }
                     </main>
                 </div>
+                <BlogFooter />
             </div>
         </Provider>
     )
