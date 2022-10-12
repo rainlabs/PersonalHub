@@ -15,7 +15,7 @@ const BlogNavigation: FC = () => {
     const [open, setOpen] = useState(false)
     const overlayClass = "fixed flex top-0 left-0 px-10 pb-32 pt-12 z-20 h-screen w-full \
                             bg-gray-100 transform delay-100 transition-all duration-300 \
-                            lg:translate-x-0 lg:items-center lg:mx-auto lg:opacity-90 lg:static lg:bg-white lg:h-auto lg:w-auto lg:p-5 lg:mb-2"
+                            lg:translate-x-0 lg:items-center lg:mx-auto lg:opacity-90 lg:static lg:bg-white lg:dark:bg-slate-900 lg:h-auto lg:w-auto lg:p-5 lg:mb-2"
 
     function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
         setOpen(false)

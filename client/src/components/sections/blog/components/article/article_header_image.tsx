@@ -29,7 +29,7 @@ const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-30"></div>
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full max-w-4xl mx-auto text-center break-normal flex items-center">
                 <div className='mx-auto'>
-                    <h1 className="text-white text-3xl md:text-5xl">
+                    <h1 className="text-white dark:text-slate-200 text-3xl md:text-5xl">
                         { title }
                     </h1>
                     <div className='flex flex-col mt-3'>

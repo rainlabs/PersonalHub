@@ -13,7 +13,7 @@ type Props = {
 const BlogNavigationItem: FC<Props> = ({topic, className, children, onClick}) => {
     return (
         <li className='px-5'>
-            <AppNavLink to={`/blog/topic/${topic}`} className={`text-gray-600 ${className || ''} group relative`} onClick={onClick}>
+            <AppNavLink to={`/blog/topic/${topic}`} className={`text-gray-600 dark:text-slate-400 ${className || ''} group relative`} onClick={onClick}>
                 <div className='w-7 h-7 align-top absolute -left-8 hidden group-hover:inline-block lg:w-4 lg:h-4 lg:-left-5'>
                     { children }
                 </div>

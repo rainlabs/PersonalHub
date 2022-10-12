@@ -35,7 +35,7 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
     }
 
     return (
-        <article data-description={description} className={`${className || ''}`}>
+        <article data-description={description} className={`${className || ''} dark:text-slate-400`}>
             <BlogPublishedBlock id='published-date' className='text-right mb-0'>
                 { publishedAt }
             </BlogPublishedBlock>

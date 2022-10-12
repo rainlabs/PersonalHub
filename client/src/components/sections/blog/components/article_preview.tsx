@@ -43,7 +43,7 @@ const BlogArticlePreview: FC<Props> = ({data}) => {
 
             <div className="grow-0 shrink-0 basis-auto w-full lg:w-8/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto relative">
                 <div className='flex'>
-                    <AppNavLink to={`/blog/article/${data.slug}`} className='hover:text-gray-500 mx-auto lg:mr-auto lg:ml-0'>
+                    <AppNavLink to={`/blog/article/${data.slug}`} className='hover:text-gray-500 dark:text-slate-200 dark:hover:dark:text-slate-300 mx-auto lg:mr-auto lg:ml-0'>
                         <h5 className="text-lg font-bold mb-3">{ data.title }</h5>
                     </AppNavLink>
                 </div>
@@ -57,7 +57,7 @@ const BlogArticlePreview: FC<Props> = ({data}) => {
                 <BlogPublishedBlock>
                     { data.publishedAt }
                 </BlogPublishedBlock>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-slate-400">
                     { data.description }
                 </p>
             </div>
