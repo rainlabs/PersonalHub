@@ -35,7 +35,7 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
     }
 
     return (
-        <article data-description={description} className={`${className || ''} dark:text-slate-400`}>
+        <article data-description={description} className={`${className || ''} dark:text-slate-300`}>
             <BlogPublishedBlock id='published-date' className='text-right mb-0'>
                 { publishedAt }
             </BlogPublishedBlock>
@@ -45,7 +45,6 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
                     { originalDate }
                 </BlogPublishedBlock>
             }
-            <div className='indent-12 text-justify'></div>
             <div className='mt-4 article-text' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
             <BlogArticleReferences references={references || []} />
