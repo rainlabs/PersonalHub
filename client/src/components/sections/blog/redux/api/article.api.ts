@@ -21,7 +21,7 @@ function getTopicFilter(topic?: BlogTopic) {
     return {}
 }
 
-function buildArticlesQuery(topic?: BlogTopic) {
+function buildArticlesQuery(page: number, topic?: BlogTopic) {
     return QueryString.stringify({
         fields: ['topic', 'title', 'description', 'publishedAt', 'slug', 'viewCount'],
         populate: {
@@ -37,7 +37,7 @@ function buildArticlesQuery(topic?: BlogTopic) {
             }
         },
         pagination: {
-            page: 1,
+            page: page,
             pageSize: 10,
             withCount: true
         },
@@ -106,8 +106,8 @@ export const ArticleApiSlice = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getArticles: builder.query<StrapiResponse<StrapiModel<BlogArticleData>[]>, BlogTopic | undefined>({
-            query: (topic?: BlogTopic) => `/articles?${buildArticlesQuery(topic)}`
+        getArticles: builder.query<StrapiResponse<StrapiModel<BlogArticleData>[]>, {page: number, topic?: BlogTopic}>({
+            query: ({page, topic}) => `/articles?${buildArticlesQuery(page, topic)}`
         }),
         getArticleBySlug: builder.query<StrapiResponse<StrapiModel<BlogArticleData>>, string>({
             query: (articleSlug: string) => `/articles/${articleSlug}?${buildArticleQuery()}`

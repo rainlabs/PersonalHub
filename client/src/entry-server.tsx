@@ -86,7 +86,7 @@ const dispatchApiAction = (path: string): boolean => {
             dispatch: (match: RegExpMatchArray) => {
                 const topic = match[1] as BlogTopic
                 Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
-                Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(topic) )
+                Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate({page: 1, topic}) )
             }
         },
         {
@@ -99,7 +99,7 @@ const dispatchApiAction = (path: string): boolean => {
             regexp: /^\/blog(\/|$|\?)/,
             dispatch: (match: RegExpMatchArray) => {
                 Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
-                Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate(undefined) )
+                Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate({page: 1}) )
             }
         }
     ]
