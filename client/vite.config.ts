@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => {
     },
     ssr: {
       format: 'cjs'
+    },
+    optimizeDeps: {
+      include: ['./src/components/sections/blog/components/article/check_list']
     }
   }
 })
