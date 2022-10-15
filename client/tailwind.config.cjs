@@ -6,6 +6,8 @@ module.exports = {
   safelist: [
     'indent-6',
     'text-justify',
-    'list-disc'
+    'list-disc',
+    'text-green-500',
+    'text-red-400'
   ]
 }
