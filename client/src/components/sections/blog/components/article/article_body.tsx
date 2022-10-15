@@ -8,6 +8,7 @@ import BlogGalleryItem from '../gallery/gallery_item';
 import BlogArticleReferences from './article_references';
 import { ExternalReference } from '../../../../../types/external_reference';
 import { StrapiDataArray } from '../../../../../types/strapi.data';
+import BlogCheckList from './check_list';
 
 type Props = {
     className?: string,
@@ -20,6 +21,10 @@ type Props = {
 }
 
 const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, originalDate, gallery, references, children }) => {
+    function renderCheckList() {
+        return <BlogCheckList className='hidden' list={[]} />
+    }
+
     function renderGallery() {
         if (gallery && gallery.data && gallery.data.length > 0) {
             return (
@@ -47,6 +52,7 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
             }
             <div className='mt-4 article-text' dangerouslySetInnerHTML={{__html: children}}></div>
             { renderGallery() }
+            { renderCheckList() }
             <BlogArticleReferences references={references || []} />
             <div id='article-footer' className='hidden'></div>
         </article>
