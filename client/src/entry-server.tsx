@@ -82,7 +82,7 @@ interface ApiRouteMatch {
 const dispatchApiAction = (path: string): boolean => {
     const routes: ApiRouteMatch[] = [
         {
-            regexp: /^\/blog\/topic\/(.*?)(\/|$|\?)/,
+            regexp: /^\/blog\/topic\/(.*?)(\/|$|\?|\&)/,
             dispatch: (match: RegExpMatchArray) => {
                 const topic = match[1] as BlogTopic
                 Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
@@ -90,13 +90,13 @@ const dispatchApiAction = (path: string): boolean => {
             }
         },
         {
-            regexp: /^\/blog\/article\/(.*?)(\/|$|\?)/,
+            regexp: /^\/blog\/article\/(.*?)(\/|$|\?|\&)/,
             dispatch: (match: RegExpMatchArray) => {
                 Store.dispatch( ArticleApiSlice.endpoints.getArticleBySlug.initiate(match[1]) )
             }
         },
         {
-            regexp: /^\/blog(\/|$|\?)/,
+            regexp: /^\/blog(\/|$|\?|\&)/,
             dispatch: (match: RegExpMatchArray) => {
                 Store.dispatch( ArticleApiSlice.endpoints.getHeroSlides.initiate() )
                 Store.dispatch( ArticleApiSlice.endpoints.getArticles.initiate({page: 1}) )

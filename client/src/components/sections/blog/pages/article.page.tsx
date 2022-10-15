@@ -13,8 +13,9 @@ type ArticleParams = {
 }
 
 const BlogArticlePage: FC = () => {
-    const { articleSlug } = useParams<ArticleParams>()
-    const { data: article, isLoading, isFetching, isSuccess, isError } = useGetArticleBySlugQuery(articleSlug || '')
+    let { articleSlug } = useParams<ArticleParams>()
+    articleSlug = (articleSlug || '').split('&')[0]
+    const { data: article, isLoading, isFetching, isSuccess, isError } = useGetArticleBySlugQuery(articleSlug)
 
     useEffect(() => {
         if (isSuccess && !import.meta.env.SSR) {
