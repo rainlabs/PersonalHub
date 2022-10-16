@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
+  darkMode: 'class',
   safelist: [
     'indent-6',
     'text-justify',
