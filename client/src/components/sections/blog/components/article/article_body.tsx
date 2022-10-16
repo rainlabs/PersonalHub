@@ -8,7 +8,7 @@ import BlogGalleryItem from '../gallery/gallery_item';
 import BlogArticleReferences from './article_references';
 import { ExternalReference } from '../../../../../types/external_reference';
 import { StrapiDataArray } from '../../../../../types/strapi.data';
-import BlogCheckList from './check_list';
+import BlogCheckList from './elements/check_list';
 
 type Props = {
     className?: string,

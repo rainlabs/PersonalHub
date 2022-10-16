@@ -8,7 +8,7 @@ type Props = {
 
 const BlogCheckList: FC<Props> = ({ className, list }) => {
     return (
-        <div className={`p-4 lg:p-8 my-4 mx-0 md:mx-32 lg:mx-48 space-y-2 bg-slate-50 dark:bg-slate-800 rounded-xl ${className || ''}`}>
+        <div className={`border-2 border-slate-100 dark:border-slate-700 bg-slate-100 dark:bg-slate-700 rounded-lg my-4 mx-0 md:mx-32 lg:mx-48 space-y-0.5 ${className || ''}`}>
             {
                 list.map((el, idx) => <BlogCheckListItem key={idx} {...el} />)
             }
