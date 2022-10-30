@@ -14,6 +14,9 @@ const BlogArticlesLayout: FC<Props> = ({ children }) => {
                 <title>Владимир Зяблицкий | Личный Блог</title>
                 <meta name="description" content='Личный блог, фотографии и мысли' />
                 <meta name="keywords" content='Прогулки, фото, мысли, программирование, бомбеж' />
+                <meta property="og:type" content='website' />
+                <meta property="og:locale" content='ru_RU' />
+                <meta property="og:site_name" content='Владимир Зяблицкий | Личный Блог' />
             </Helmet>
             <BlogHeroSlider />
             <BlogAvatar />

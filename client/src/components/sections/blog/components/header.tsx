@@ -6,7 +6,7 @@ const BlogHeader: FC = () => {
         <header className='blog-header'>
             <div className='flex'>
                 <div className='text-center mx-auto'>
-                    <div className='text-gray-800 pt-12 lg:pt-24 pb-7'>
+                    <div className='text-gray-800 pt-12 pb-7'>
                         <p className='blog-title font-pacifico text-5xl md:text-6xl'>
                             <AppNavLink to='/blog' className='text-gray-800 dark:text-slate-100 hover:text-gray-700 dark:hover:text-slate-200'>
                                 <span className=''>Владимир</span> Зяблицкий

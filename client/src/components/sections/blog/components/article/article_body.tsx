@@ -8,11 +8,10 @@ import BlogGalleryItem from '../gallery/gallery_item';
 import BlogArticleReferences from './article_references';
 import { ExternalReference } from '../../../../../types/external_reference';
 import { StrapiDataArray } from '../../../../../types/strapi.data';
-import BlogCheckList from './elements/check_list';
+import BlogElementsFactory from './elements/factory';
 
 type Props = {
     className?: string,
-    description: string,
     publishedAt: string,
     originalDate?: string,
     gallery?: StrapiDataArray<StrapiImage>
@@ -20,11 +19,7 @@ type Props = {
     children: string
 }
 
-const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, originalDate, gallery, references, children }) => {
-    function renderCheckList() {
-        return <BlogCheckList className='hidden' list={[]} />
-    }
-
+const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, references, children }) => {
     function renderGallery() {
         if (gallery && gallery.data && gallery.data.length > 0) {
             return (
@@ -40,7 +35,7 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
     }
 
     return (
-        <article data-description={description} className={`${className || ''} dark:text-slate-300`}>
+        <article className={`${className || ''} dark:text-slate-300`}>
             <BlogPublishedBlock id='published-date' className='text-right mb-0'>
                 { publishedAt }
             </BlogPublishedBlock>
@@ -50,9 +45,8 @@ const BlogArticleBody: FC<Props> = ({ className, description, publishedAt, origi
                     { originalDate }
                 </BlogPublishedBlock>
             }
-            <div className='mt-4 article-text' dangerouslySetInnerHTML={{__html: children}}></div>
+            <BlogElementsFactory>{ children }</BlogElementsFactory>
             { renderGallery() }
-            { renderCheckList() }
             <BlogArticleReferences references={references || []} />
             <div id='article-footer' className='hidden'></div>
         </article>

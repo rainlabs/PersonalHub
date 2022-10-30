@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { BlogTopic } from '../../../../types/blog_topic.enum';
 import CameraIcon from '../../../icons/camera_icon';
 import ChatIcon from '../../../icons/chat_icon';

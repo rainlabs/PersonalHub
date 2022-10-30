@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { BlogTopic } from '../../../../../types/blog_topic.enum';
 import { LocationData } from '../../../../../types/location_data';
 import { StrapiImagePreview } from '../../../../../types/strapi_image_preview';
@@ -25,6 +26,9 @@ const BlogArticleHeaderImage: FC<Props> = ({ title, topic, imageData, location }
 
     return (
         <div className="w-full m-0 p-0 bg-cover bg-center relative">
+            <Helmet>
+                <meta property="og:image" content={ getImageUrl() } />
+            </Helmet>
             <figure id='image-preview' className='w-full object-cover blog-hero-slider'><img className='object-cover object-center w-full h-full' src={getImageUrl()} /></figure>
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-30"></div>
             <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full max-w-4xl mx-auto text-center break-normal flex items-center">

@@ -2,21 +2,21 @@ import React, { FC } from 'react';
 import FailIcon from '../../../../../../icons/fail_icon';
 import SuccessIcon from '../../../../../../icons/success_icon';
 
-export type CheckListItemProps = {
-    name: string,
-    done: boolean
+type Props = {
+    state: 'Done' | 'Failed',
+    children: React.ReactNode,
 }
 
-const BlogCheckListItem: FC<CheckListItemProps> = ({name, done}) => {
+const BlogElementCheckListItem: FC<Props> = ({state, children}) => {
     return (
-        <div className={`flex items-center justify-between text-gray-800 dark:text-gray-200 bg-slate-50 dark:bg-slate-800 first:rounded-t-lg last:rounded-b-lg px-4 py-2  ${done ? 'item-success' : 'item-failure'}`}>
-            <p>{ name }</p>
+        <div className={`flex items-center justify-between text-gray-800 dark:text-gray-200 bg-slate-50 dark:bg-slate-800 first:rounded-t-lg last:rounded-b-lg px-4 py-2  ${state === 'Done' ? 'item-success' : 'item-failure'}`}>
+            <p>{ children }</p>
 
-            <div className={`w-5 h-5 sm:h-7 sm:w-7 ${done ? 'text-green-500' : 'text-red-400'}`}>
-                { done ? <SuccessIcon /> : <FailIcon /> }
+            <div className={`w-5 h-5 sm:h-7 sm:w-7 ${state === 'Done' ? 'text-green-500' : 'text-red-400'}`}>
+                { state === 'Done' ? <SuccessIcon /> : <FailIcon /> }
             </div>
         </div>
     )
 }
 
-export default BlogCheckListItem;
+export default BlogElementCheckListItem;

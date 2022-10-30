@@ -3,6 +3,7 @@ import BlogCarouselItem from './carousel/carousel_item';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Lazy, Autoplay, EffectFade } from "swiper";
+import { Helmet } from 'react-helmet-async';
 import { useGetHeroSlidesQuery } from '../redux/api/article.api';
 import Loading from '../../../_loading';
 import '../../../../styles/swiper.scss'
@@ -17,9 +18,13 @@ const BlogHeroSlider: FC = () => {
     function renderSlides() {
 
         return heroSlides?.data.map((el) => {
+            const imageUrl = el.attributes.image.media.data.attributes.formats.large.url
             return (
                 <SwiperSlide key={el.id}>
-                    <BlogCarouselItem image={el.attributes.image.media.data.attributes.formats.large.url} alt={el.attributes.image.alt} />
+                    <Helmet>
+                        <meta property='og:image' content={imageUrl} />
+                    </Helmet>
+                    <BlogCarouselItem image={imageUrl} alt={el.attributes.image.alt} />
                 </SwiperSlide>
             )
         })
