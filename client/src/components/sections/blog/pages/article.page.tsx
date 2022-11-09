@@ -48,6 +48,7 @@ const BlogArticlePage: FC = () => {
                 publishedAt={article.data.attributes.publishedAt}
                 originalDate={article.data.attributes.originalDate}
                 gallery={article.data.attributes.gallery}
+                preview={article.data.attributes.imagePreview}
                 references={article.data.attributes.references}
                 >
                 { article.data.attributes.body || '' }

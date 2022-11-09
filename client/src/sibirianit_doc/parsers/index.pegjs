@@ -70,7 +70,7 @@ String "string"
   / '\'' chars:[^']*      '\'' __ { return chars.join(''); }
   /      chars:[^"'<>` ]+      __ { return chars.join(''); }
 
-TagName = 'SibirianitDoc' / 'Paragraph' / 'DiscList' / 'ListItem' / 'YandexMusic' / 'Image' / 'CheckList' / 'StateListItem' / 'Emoji'
+TagName = 'SibirianitDoc' / 'Paragraph' / 'DiscList' / 'ListItem' / 'YandexMusic' / 'Image' / 'CheckListItem' / 'CheckList' / 'Emoji' / 'Bold'
 
 Symbol = h:[a-zA-Z0-9_\-] t:[a-zA-Z0-9:_\-]* { return h.concat(t.join('')); }
 

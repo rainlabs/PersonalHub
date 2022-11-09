@@ -9,24 +9,27 @@ import BlogArticleReferences from './article_references';
 import { ExternalReference } from '../../../../../types/external_reference';
 import { StrapiDataArray } from '../../../../../types/strapi.data';
 import BlogElementsFactory from './elements/factory';
+import { StrapiImagePreview } from '../../../../../types/strapi_image_preview';
+import e from 'express';
 
 type Props = {
     className?: string,
     publishedAt: string,
     originalDate?: string,
-    gallery?: StrapiDataArray<StrapiImage>
+    gallery?: StrapiDataArray<StrapiImage>,
+    preview: StrapiImagePreview,
     references?: ExternalReference[],
     children: string
 }
 
-const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, references, children }) => {
+const BlogArticleBody: FC<Props> = ({ className, publishedAt, originalDate, gallery, preview, references, children }) => {
     function renderGallery() {
         if (gallery && gallery.data && gallery.data.length > 0) {
             return (
                 <BlogGallery>
                     {
                         gallery.data.map((el, idx) => {
-                            return <BlogGalleryItem key={idx} thumbnail={el.attributes.formats.small.url} original={el.attributes.url} caption={el.attributes.caption} />
+                            return <BlogGalleryItem key={idx} thumbnail={el.attributes.formats.small.url} original={el.attributes.url} caption={el.attributes.caption} isPreview={preview.media.data.id === el.id} />
                         })
                     }
                 </BlogGallery>
