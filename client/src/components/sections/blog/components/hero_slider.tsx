@@ -23,6 +23,7 @@ const BlogHeroSlider: FC = () => {
                 <SwiperSlide key={el.id}>
                     <Helmet>
                         <meta property='og:image' content={imageUrl} />
+                        <meta property='vk:image' content={imageUrl} />
                     </Helmet>
                     <BlogCarouselItem image={imageUrl} alt={el.attributes.image.alt} />
                 </SwiperSlide>
