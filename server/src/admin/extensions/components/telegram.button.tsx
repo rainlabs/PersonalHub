@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Button } from '@strapi/design-system/Button';
-import PaperPlane from '@strapi/icons/PaperPlane';
+import { PaperPlane } from '@strapi/icons';
 import { useCMEditViewDataManager } from '@strapi/helper-plugin';
 
 const TelegramButton: FC = () => {
