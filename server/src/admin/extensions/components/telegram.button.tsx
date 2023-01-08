@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button } from '@strapi/design-system/Button';
+import { Button } from '@strapi/design-system';
 import { PaperPlane } from '@strapi/icons';
 import { useCMEditViewDataManager } from '@strapi/helper-plugin';
 
