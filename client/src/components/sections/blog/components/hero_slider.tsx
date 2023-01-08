@@ -6,6 +6,7 @@ import { Navigation, Pagination, Lazy, Autoplay, EffectFade } from "swiper";
 import { Helmet } from 'react-helmet-async';
 import { useGetHeroSlidesQuery } from '../redux/api/article.api';
 import Loading from '../../../_loading';
+import uriUtils from '../../../../utils/uri.utils';
 import '../../../../styles/swiper.scss'
 
 const BlogHeroSlider: FC = () => {
@@ -18,7 +19,7 @@ const BlogHeroSlider: FC = () => {
     function renderSlides() {
 
         return heroSlides?.data.map((el) => {
-            const imageUrl = el.attributes.image.media.data.attributes.formats.large.url
+            const imageUrl = uriUtils.getURL(el.attributes.image.media.data.attributes.formats.large.url)
             return (
                 <SwiperSlide key={el.id}>
                     <Helmet>
